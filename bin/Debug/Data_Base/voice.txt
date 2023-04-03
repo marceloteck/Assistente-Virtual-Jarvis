@@ -1,3 +1,0 @@
-oi|olá senhor>>como posso ajudar>>oque deseja?
-olá jarvis|olá senhor
-jarvis|sim senhor, em que posso ajudar?
