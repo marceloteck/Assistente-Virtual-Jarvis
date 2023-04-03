@@ -1,0 +1,31 @@
+bloco de notas|notepad
+prompt de comando|cmd
+windows media player|wmplayer
+gerenciador de tarefas|taskmgr
+minhas pastas|explorer
+calculadora>>Explorador de Arquivos|calc
+mapa de caracteres|charmap
+limpeza de disco|cleanmgr
+gerenciamento de cores|colorcpl
+serviços de componente|comexp.msc
+gerenciamento de computador|compmgmt.msc
+definir programas padrão|ComputerDefaults
+painel de controle|control.exe
+otimizador de texto|cttune.exe
+calibragem de cores|dccw.exe
+desfragmentador de disco|dfrgui.exe
+adicionar um novo dispositivo|DevicePairingWizard
+gerenciador de dispositivos|devmgmt.msc
+discagem telefônica|dialer.exe
+gerenciamento de disco|diskmgmt.msc
+PowerShell|powershell.exe
+Configurações|ms-settings:
+Painel de Controle|control.exe
+Editor de Registros|regedit.exe
+Centro de Segurança do Windows|wscui.cpl
+Firewall do Windows|firewall.cpl
+Gerenciamento de Energia|powercfg.cpl
+Serviços|services.msc
+Editor de Política de Segurança Local|secpol.msc
+Editor de Diretivas de Grupo Local|gpedit.msc
+Editor de Tarefas Agendadas|taskschd.msc
