@@ -183,8 +183,8 @@ namespace JARVIS
 
 
             // Define as opções de reconhecimento de fala
-            Choices opcoes = new Choices("ativar", "execultar");
-            opcoes.Add(new string[] { "modo siapec", "modo trabalho" });
+            Choices opcoes = new Choices();
+            opcoes.Add(ComandsLotesG.ListLote.ToArray());
             
 
             //Choices cNumbers = new Choices(File.ReadAllLines("n.txt")); // números
@@ -223,6 +223,7 @@ namespace JARVIS
             gbControls.Append(cControls);
 
             GrammarBuilder gbLote = new GrammarBuilder();
+            gbLote.Append(new Choices(ComandsLotesG.ChoicesArrList.ToArray())); // comando
             gbLote.Append(opcoes);
 
             GrammarBuilder gbProcess = new GrammarBuilder();

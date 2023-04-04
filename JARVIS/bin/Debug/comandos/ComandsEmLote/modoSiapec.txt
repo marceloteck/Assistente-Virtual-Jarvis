@@ -1,1 +1,1 @@
-text=modo siapec,modo trabalho;resposta=sim senhor,ativando modo siapec;executar=chrome,http://siapec3.com;
+text=modo siapec|modo trabalho;resposta=sim senhor|ativando modo siapec;executar=chrome|http://siapec3.com;

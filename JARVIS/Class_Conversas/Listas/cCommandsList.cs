@@ -60,17 +60,20 @@ namespace JARVIS.Class_Conversas.Listas
         }
     }   
     
-    public static class DiversosComands
+    // CLASS COMANDOS EM LOTE
+    public static class ComandsLotesG
     {
         public static IList<string> ComandsEmLote   = new List<string>();
+        public static IList<string> ChoicesArrList  = new List<string>();
+        public static IList<string> ListLote        = new List<string>();
 
-        static DiversosComands()
+        static ComandsLotesG()
         {
+            string ChoicesString = Path.Combine(Application.StartupPath, "comandos/ComandsEmLote/chave.txt");
+            configList.AddList(ChoicesString, (List<string>)ChoicesArrList);
+
+
             string arquivo = Path.Combine(Application.StartupPath, "comandos/ComandsEmLote/ComandsLote.txt");
-
-            // Lista para armazenar as linhas
-            //List<string> linhas = new List<string>();
-
             // Lê o arquivo principal linha por linha
             using (StreamReader sr = new StreamReader(arquivo))
             {
@@ -82,7 +85,7 @@ namespace JARVIS.Class_Conversas.Listas
                     {
                         string link = linha.Substring(linha.IndexOf(".txt"));
 
-                        link = Path.Combine(Application.StartupPath, "comandos/ComandsEmLote/" + link);
+                        link = Path.Combine(Application.StartupPath, "comandos/ComandsEmLote/" + linha);
                         // Lê o arquivo vinculado ao link
                         using (StreamReader sr2 = new StreamReader(link))
                         {
@@ -95,10 +98,35 @@ namespace JARVIS.Class_Conversas.Listas
                         }
                     }
                 }
+            } // end using sr
+
+            // armazenar o text na list
+            foreach (string ListComands in ComandsEmLote)
+            {
+                string[] comands = ListComands.Split(';');
+                foreach (string cmd in comands)
+                {
+                    string[] info = cmd.Split('=');
+
+                    switch (info[0])
+                    {
+                        case "text":
+                            string[] text = info[1].Split('|');
+                            // faça algo com as informações de texto
+                            foreach (string Linha in text)
+                            {
+                                ListLote.Add(Linha);
+                            }
+                            break;
+                    }
+                }
             }
 
-        }
-    } // end DiversosComands
+
+
+
+        } // end static ComandsLotesG
+    } // end ComandsLotesG
 
 
 
