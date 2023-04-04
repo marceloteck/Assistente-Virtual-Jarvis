@@ -66,12 +66,48 @@ namespace JARVIS.Class_Conversas.Listas
 
         static DiversosComands()
         {
-            string Lote = Path.Combine(Application.StartupPath, "comandos/ComandsEmLote/ComandsLote.txt");
+            string arquivo = Path.Combine(Application.StartupPath, "comandos/ComandsEmLote/ComandsLote.txt");
 
-            //configList.AddList(Nn, (List<string>)Number);
+            // Lista para armazenar as linhas
+            //List<string> linhas = new List<string>();
+
+            // Lê o arquivo principal linha por linha
+            using (StreamReader sr = new StreamReader(arquivo))
+            {
+                string linha;
+                while ((linha = sr.ReadLine()) != null)
+                {
+                    // Verifica se a linha contém um link para outro arquivo
+                    if (linha.Contains(".txt"))
+                    {
+                        string link = linha.Substring(linha.IndexOf(".txt"));
+
+                        link = Path.Combine(Application.StartupPath, "comandos/ComandsEmLote/" + link);
+                        // Lê o arquivo vinculado ao link
+                        using (StreamReader sr2 = new StreamReader(link))
+                        {
+                            string linha2;
+                            while ((linha2 = sr2.ReadLine()) != null)
+                            {
+                                // Adiciona cada linha na lista
+                                ComandsEmLote.Add(linha2);
+                            }
+                        }
+                    }
+                }
+            }
 
         }
-    }
+    } // end DiversosComands
+
+
+
+
+
+
+
+
+
 
     // CLASS DE CONFIGURAÇÕES RAPIDAS
     public static class configList

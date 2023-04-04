@@ -15,6 +15,7 @@ using System.Web;
 using JARVIS.Listas;
 using System.Web.UI;
 using JARVIS.Class_Conversas.Listas;
+using JARVIS.Class_Conversas;
 
 namespace JARVIS
 {
@@ -181,6 +182,11 @@ namespace JARVIS
             cCommands.Add("nova linha");
 
 
+            // Define as opções de reconhecimento de fala
+            Choices opcoes = new Choices("ativar", "execultar");
+            opcoes.Add(new string[] { "modo siapec", "modo trabalho" });
+            
+
             //Choices cNumbers = new Choices(File.ReadAllLines("n.txt")); // números
             #region Process Choices
             Choices cProcess = new Choices(); // lista de comandos
@@ -215,7 +221,10 @@ namespace JARVIS
 
             GrammarBuilder gbControls = new GrammarBuilder();
             gbControls.Append(cControls);
-            
+
+            GrammarBuilder gbLote = new GrammarBuilder();
+            gbLote.Append(opcoes);
+
             GrammarBuilder gbProcess = new GrammarBuilder();
             gbProcess.Append(new Choices("abrir", "abra", "abre", "fechar", "feche")); // comando
             gbProcess.Append(cProcess);
@@ -245,6 +254,9 @@ namespace JARVIS
             Grammar gControls = new Grammar(gbControls);
             gControls.Name = "Control";
 
+            Grammar LoteGramar = new Grammar(gbLote);
+            LoteGramar.Name = "ComandsLote"; // nome
+
             /*Grammar gCalculations = new Grammar(gbCalculations);
             gCalculations.Name = "Calculations";*/
 
@@ -260,6 +272,7 @@ namespace JARVIS
             grammars.Add(gControls);
             //grammars.Add(gCalculations);
             grammars.Add(gProcess);
+            grammars.Add(LoteGramar);
             
             ParallelOptions op = new ParallelOptions() { MaxDegreeOfParallelism = 4 };
             Parallel.For(0, grammars.Count, op, i => // loop paralelo
@@ -327,7 +340,7 @@ namespace JARVIS
         {
             string speech = e.Result.Text; // criamos uma variável que contêm a palavra ou frase reconhecida
             double confidence = e.Result.Confidence; // criamos uma variável para a confiança
-            if (confidence > 0.8)// pegar o resultado da confiança, se for maior que 80% faz algo
+            if (confidence > 0.4)// pegar o resultado da confiança, se for maior que 40% faz algo
             {
                 label1.Text = "Reconhecido:\n" + speech; // mostrar o que foi reconhecido
 
@@ -406,6 +419,9 @@ namespace JARVIS
                     case "Control":
                         motionDetection = new MotionDetection();
                         motionDetection.Show();
+                        break;
+                    case "ComandsLote":
+                        LoteComands.Executar(speech);
                         break;
                     default: // caso padrão
                         Speaker.Speak(AIML.GetOutputChat(speech)); // pegar resposta

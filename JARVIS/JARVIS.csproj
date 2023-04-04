@@ -118,6 +118,7 @@
     <Compile Include="Class_Conversas\Listas\cProcess.cs" />
     <Compile Include="Class_Conversas\Listas\ShellList.cs" />
     <Compile Include="Class_Conversas\Listas\Web_Process.cs" />
+    <Compile Include="Class_Conversas\LoteComands.cs" />
     <Compile Include="Class_Conversas\ShellComands.cs" />
     <Compile Include="Forms\AddNewCommand.cs">
       <SubType>Form</SubType>
