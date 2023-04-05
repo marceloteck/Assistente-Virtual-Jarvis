@@ -1,1 +1,2 @@
 modoSiapec.txt
+modoProgramador.txt

@@ -16,6 +16,7 @@ using JARVIS.Listas;
 using System.Web.UI;
 using JARVIS.Class_Conversas.Listas;
 using JARVIS.Class_Conversas;
+using JARVIS.Forms;
 
 namespace JARVIS
 {
@@ -71,228 +72,247 @@ namespace JARVIS
         
         private void LoadSpeechRecognition() // fazer o que é preciso para o reconhecimento de voz
         {
-            sre = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("pt-BR")); // instanciando  o reconhecedor passando a cultura da engine
-            sre.SetInputToDefaultAudioDevice(); // definindo o microfone como entrada de aúdio
+			try{
+                //Speaker.Speak("Estou carregando meu nucleo");
+				sre = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("pt-BR")); // instanciando  o reconhecedor passando a cultura da engine
+				sre.SetInputToDefaultAudioDevice(); // definindo o microfone como entrada de aúdio
 
-            Choices cControls = new Choices();
-            cControls.Add(cControlsList.Controlls.ToArray());
+				Choices cControls = new Choices();
+				cControls.Add(cControlsList.Controlls.ToArray());
 
-            // Alarme
-            Choices cAlarm = new Choices();
-            for (int i = 1; i <= 12; i++)
-                cAlarm.Add(i.ToString());
+				// Alarme
+				Choices cAlarm = new Choices();
+				for (int i = 1; i <= 12; i++)
+					cAlarm.Add(i.ToString());
 
-            // Criação das Gramáticas, Choices
-            Choices cChats = new Choices(); // palavras ou frases de conversa
-            cChats.Add(cChatsList.Conversa.ToArray());
-            
-
-
-            Choices cDummes = new Choices(); // conversa mais desenrolada
-            cDummes.Add(DummeIn.InStartingConversation.ToArray());
-            cDummes.Add(DummeIn.InQuestionForDumme.ToArray());
-            cDummes.Add(DummeIn.InDoWork.ToArray());
-            cDummes.Add(DummeIn.InDummeStatus.ToArray());
-            cDummes.Add(DummeIn.InJarvis.ToArray());
-
-            Choices cCommands = new Choices(); // palavras ou frases que são comandos
-            
-            // informações de hora e data
-            cCommands.Add(DataHora.QueHoras.ToArray());
-            cCommands.Add(DataHora.QueData.ToArray());
-            cCommands.Add(DataHora.QueDia.ToArray());
-            cCommands.Add(DataHora.QueDiaSemana.ToArray());
-            cCommands.Add(DataHora.QueMes.ToArray());
-            cCommands.Add(DataHora.QueAno.ToArray());
-
-            /*cCommands.Add("que dia é hoje");
-            cCommands.Add("data de hoje");*/
-            cCommands.Add("em que mês estamos");
-            cCommands.Add("em que ano estamos");
-            cCommands.Add("minimizar a janela principal");
-            cCommands.Add("mostrar janela principal");
+				// Criação das Gramáticas, Choices
+				Choices cChats = new Choices(); // palavras ou frases de conversa
+				cChats.Add(cChatsList.Conversa.ToArray());
+				
 
 
-            // Comandos do programa
-            cCommands.Add(InternoComands.LsdeComands.ToArray());
+				Choices cDummes = new Choices(); // conversa mais desenrolada
+				cDummes.Add(DummeIn.InStartingConversation.ToArray());
+				cDummes.Add(DummeIn.InQuestionForDumme.ToArray());
+				cDummes.Add(DummeIn.InDoWork.ToArray());
+				cDummes.Add(DummeIn.InDummeStatus.ToArray());
+				cDummes.Add(DummeIn.InJarvis.ToArray());
 
-            // status do usuário
-            cCommands.Add("estou com sono");
-            cCommands.Add("estou indo dormir");
-
-            // sair do JARVIS
-            cCommands.Add("até mais jarvis");
-            
-            // configurar o sintetizador
-            cCommands.Add(InternoComands.PareFalar.ToArray());
-
-            // notícias 
-            cCommands.Add("quais são as notícias");
-            cCommands.Add("próxima notícia");
-            
-            // media player
-            cCommands.Add("media player");
-            cCommands.Add("selecionar arquivo para o media player");
-            cCommands.Add("pausar");
-            cCommands.Add("continuar");
-            cCommands.Add("parar");
-            cCommands.Add("fechar media player");
-            cCommands.Add("abrir diretório para reproduzir");
-            cCommands.Add("próximo");
-            cCommands.Add("anterior");
-            cCommands.Add("aumentar volume do media player");
-            cCommands.Add("diminuir volume do media player");
-            cCommands.Add("media player sem som");
-            cCommands.Add("media player com som");
-            cCommands.Add("media player em tela cheia");
-            cCommands.Add("que arquivo está tocando");
-            cCommands.Add("reproduza algum vídeo");
-            cCommands.Add("reproduza alguma música");
-
-            // informações do sistema
-            cCommands.Add("em quanto estar o uso do processador?");
-            cCommands.Add("quanta memória ram estar sendo usada?");
-            cCommands.Add("quanta mamória ram ainda há livre?");
-            cCommands.Add("quanta memória ram há no total?");
-
-            // Comandos, adicionar
-            cCommands.Add("adicionar novo comando");
-            // processos
-            cCommands.Add(InternoComands.ProcessosDetalhes.ToArray());
-            // processList
-            cCommands.Add("lista de processos");
-            cCommands.Add("fechar o processo selecionado");
-            // jarvis
-            cCommands.Add("introdução ao assistente jarvis");
-
-            cCommands.Add("desligar computador");
-            cCommands.Add("reiniciar computador");
-            cCommands.Add("cancelar desligamento");
-            cCommands.Add("cancelar reinicialização");
-
-            // controle de janelas
-            cCommands.Add("alterar de janela");
-            cCommands.Add("fechar janela");
-
-            // comandos de teclas
-            cCommands.Add("copiar texto selecionado");
-            cCommands.Add("colar texto selecionado");
-            cCommands.Add("salvar este arquivo");
-            cCommands.Add("selecionar tudo");
-            cCommands.Add("nova linha");
+				Choices cCommands = new Choices(); // palavras ou frases que são comandos
+				
+				// informações de hora e data
+				cCommands.Add(DataHora.QueHoras.ToArray());
+				cCommands.Add(DataHora.QueData.ToArray());
+				cCommands.Add(DataHora.QueDia.ToArray());
+				cCommands.Add(DataHora.QueDiaSemana.ToArray());
+				cCommands.Add(DataHora.QueMes.ToArray());
+				cCommands.Add(DataHora.QueAno.ToArray());
 
 
-            // Define as opções de reconhecimento de fala
-            Choices opcoes = new Choices();
-            opcoes.Add(ComandsLotesG.ListLote.ToArray());
-            
-
-            //Choices cNumbers = new Choices(File.ReadAllLines("n.txt")); // números
-            #region Process Choices
-            Choices cProcess = new Choices(); // lista de comandos
-            cProcess.Add(cProcessWin.ProgramasWin.ToArray()) ;
-            cProcess.Add(WebList.ComandsWEB.ToArray()) ;
-            cProcess.Add(ShellList.ShellListComands.ToArray()) ;
-            #endregion
-
-            //cCalculations
-           /* Choices cCalculations = new Choices(); // lista de comandos
-            cCalculations.Add(DiversosComands.Number.ToArray());*/
 
 
-            Choices cCustomSites = new Choices(); // lista de comandos do usuário
+                /*cCommands.Add("que dia é hoje");
+				cCommands.Add("data de hoje");
+				cCommands.Add("em que mês estamos");
+				cCommands.Add("em que ano estamos");*/
 
-            #region GrammarBuilders
-            // Gramática do alarme
-            GrammarBuilder gbAlarm = new GrammarBuilder();
-            gbAlarm.Append(new Choices("defina alarme", "alarme às", "despertador às"));
-            gbAlarm.Append(cAlarm);
-            gbAlarm.Append(new Choices("horas da manhã", "horas da tarde", "horas da noite"));
+                // Comandos do programa
+                cCommands.Add(InternoComands.LsdeComands.ToArray());
 
-            // GrammarsBuilders
-            GrammarBuilder gbChats = new GrammarBuilder(); // vamos criar um grammaBuilder para as conversas
-            gbChats.Append(cChats); // já foi feito
+                // configurar o sintetizador
+                cCommands.Add(InternoComands.PareFalar.ToArray());
 
-            GrammarBuilder gbDumme = new GrammarBuilder(); // conversa solta
-            gbDumme.Append(cDummes); 
 
-            GrammarBuilder gbCommands = new GrammarBuilder(); //para a lista de comandos
-            gbCommands.Append(cCommands); // feito
+                cCommands.Add("minimizar a janela principal");
+				cCommands.Add("mostrar janela principal");
 
-            GrammarBuilder gbControls = new GrammarBuilder();
-            gbControls.Append(cControls);
 
-            GrammarBuilder gbLote = new GrammarBuilder();
-            gbLote.Append(new Choices(ComandsLotesG.ChoicesArrList.ToArray())); // comando
-            gbLote.Append(opcoes);
+                // status do usuário
+                cCommands.Add("estou com sono");
+				cCommands.Add("estou indo dormir");
 
-            GrammarBuilder gbProcess = new GrammarBuilder();
-            gbProcess.Append(new Choices("abrir", "abra", "abre", "fechar", "feche")); // comando
-            gbProcess.Append(cProcess);
-            
-            /*GrammarBuilder gbCalculations = new GrammarBuilder();
-            gbCalculations.Append(new Choices("quanto é", "calcule", "matemática")); // comando
-            gbCalculations.Append(cCalculations); // adicionar lista de processos*/
+				// sair do JARVIS
+				cCommands.Add("até mais jarvis");
+				
+				
 
-            #endregion
-            // Grammars'
+				// notícias 
+				cCommands.Add("quais são as notícias");
+				cCommands.Add("próxima notícia");
+				
+				// media player
+				cCommands.Add("media player");
+				cCommands.Add("selecionar arquivo para o media player");
+				cCommands.Add("pausar");
+				cCommands.Add("continuar");
+				cCommands.Add("parar");
+				cCommands.Add("fechar media player");
+				cCommands.Add("abrir diretório para reproduzir");
+				cCommands.Add("próximo");
+				cCommands.Add("anterior");
+				cCommands.Add("aumentar volume do media player");
+				cCommands.Add("diminuir volume do media player");
+				cCommands.Add("media player sem som");
+				cCommands.Add("media player com som");
+				cCommands.Add("media player em tela cheia");
+				cCommands.Add("que arquivo está tocando");
+				cCommands.Add("reproduza algum vídeo");
+				cCommands.Add("reproduza alguma música");
 
-            #region Grammars
-            Grammar gChats = new Grammar(gbChats); // gramática das conversas
-            gChats.Name = "Chats"; // damos um nome para a gramática, pois vamos usa isso mais adiante
+				// informações do sistema
+				cCommands.Add("em quanto estar o uso do processador?");
+				cCommands.Add("quanta memória ram estar sendo usada?");
+				cCommands.Add("quanta mamória ram ainda há livre?");
+				cCommands.Add("quanta memória ram há no total?");
 
-            Grammar gDumme = new Grammar(gbDumme);
-            gDumme.Name = "Dumme"; // nome
+				// Comandos, adicionar
+				cCommands.Add("adicionar novo comando");
+				// processos
+				cCommands.Add(InternoComands.ProcessosDetalhes.ToArray());
+				// processList
+				cCommands.Add("lista de processos");
+				cCommands.Add("fechar o processo selecionado");
+				// jarvis
+				cCommands.Add("introdução ao assistente jarvis");
 
-            Grammar gCommands = new Grammar(gbCommands); // gramática dos comandos
-            gCommands.Name = "Commands"; // nome 
+				cCommands.Add("desligar computador");
+				cCommands.Add("reiniciar computador");
+				cCommands.Add("cancelar desligamento");
+				cCommands.Add("cancelar reinicialização");
 
-            Grammar gProcess = new Grammar(gbProcess);
-            gProcess.Name = "Process";
-            // Agora vamos carregar as gramáticas
+				// controle de janelas
+				cCommands.Add("alterar de janela");
+				cCommands.Add("fechar janela");
 
-            
-            Grammar gControls = new Grammar(gbControls);
-            gControls.Name = "Control";
+				// comandos de teclas
+				cCommands.Add("copiar texto selecionado");
+				cCommands.Add("colar texto selecionado");
+				cCommands.Add("salvar este arquivo");
+				cCommands.Add("selecionar tudo");
+				cCommands.Add("nova linha");
 
-            Grammar LoteGramar = new Grammar(gbLote);
-            LoteGramar.Name = "ComandsLote"; // nome
 
-            /*Grammar gCalculations = new Grammar(gbCalculations);
-            gCalculations.Name = "Calculations";*/
+				// Define as opções de reconhecimento de fala
+				Choices opcoes = new Choices();
+				opcoes.Add(ComandsLotesG.ListLote.ToArray());
+				
 
-            #endregion
-            // podemos fazer de várias maneiras, por enquanto vou fazer o seguinte
-            // Lista de gramáticas 
+				//Choices cNumbers = new Choices(File.ReadAllLines("n.txt")); // números
+				#region Process Choices
+				Choices cProcess = new Choices(); // lista de comandos
+				cProcess.Add(cProcessWin.ProgramasWin.ToArray()) ;
+				cProcess.Add(WebList.ComandsWEB.ToArray()) ;
+				cProcess.Add(ShellList.ShellListComands.ToArray()) ;
+				#endregion
 
-            #region List of Grammars
-            List<Grammar> grammars = new List<Grammar>();
-            grammars.Add(gChats);
-            grammars.Add(gDumme);
-            grammars.Add(gCommands); // comandos
-            grammars.Add(gControls);
-            //grammars.Add(gCalculations);
-            grammars.Add(gProcess);
-            grammars.Add(LoteGramar);
-            
-            ParallelOptions op = new ParallelOptions() { MaxDegreeOfParallelism = 4 };
-            Parallel.For(0, grammars.Count, op, i => // loop paralelo
-                {
-                    sre.LoadGrammar(grammars[i]); // carregar gramática
-                });
+				//cCalculations
+			   /* Choices cCalculations = new Choices(); // lista de comandos
+				cCalculations.Add(DiversosComands.Number.ToArray());*/
 
-            #endregion
 
-            #region SpeechEngine Events
-            speechRecognitionActived = true; // reconhecimento de voz ativo!
-            sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(reconhecido); // evento do reconhecimento
-            sre.AudioLevelUpdated += new EventHandler<AudioLevelUpdatedEventArgs>(audioElevou); // quando o aúdio é elevadosre
-            sre.SpeechRecognitionRejected += new EventHandler<SpeechRecognitionRejectedEventArgs>(rejeitado); // quando o reconhecimento de voz falhou
-            sre.SpeechDetected += new EventHandler<SpeechDetectedEventArgs>(vozDetectada); // alguma voz foi detectada
-            sre.LoadGrammarCompleted += new EventHandler<LoadGrammarCompletedEventArgs>(loaded); // gramática carregada
-            sre.RecognizeAsync(RecognizeMode.Multiple); // iniciar o reconhecimento async e múltiplo
+				Choices cCustomSites = new Choices(); // lista de comandos do usuário
 
-            #endregion
+				#region GrammarBuilders
+				// Gramática do alarme
+				GrammarBuilder gbAlarm = new GrammarBuilder();
+				gbAlarm.Append(new Choices("defina alarme", "alarme às", "despertador às"));
+				gbAlarm.Append(cAlarm);
+				gbAlarm.Append(new Choices("horas da manhã", "horas da tarde", "horas da noite"));
+
+				// GrammarsBuilders
+				GrammarBuilder gbChats = new GrammarBuilder(); // vamos criar um grammaBuilder para as conversas
+				gbChats.Append(cChats); // já foi feito
+
+				GrammarBuilder gbDumme = new GrammarBuilder(); // conversa solta
+				gbDumme.Append(cDummes); 
+
+				GrammarBuilder gbCommands = new GrammarBuilder(); //para a lista de comandos
+				gbCommands.Append(cCommands); // feito
+
+				GrammarBuilder gbControls = new GrammarBuilder();
+				gbControls.Append(cControls);
+
+				GrammarBuilder gbLote = new GrammarBuilder();
+				gbLote.Append(new Choices(ComandsLotesG.ChoicesArrList.ToArray())); // comando
+				gbLote.Append(opcoes);
+
+				GrammarBuilder gbProcess = new GrammarBuilder();
+				gbProcess.Append(new Choices("abrir", "abra", "abre", "fechar", "feche")); // comando
+				gbProcess.Append(cProcess);
+				
+				/*GrammarBuilder gbCalculations = new GrammarBuilder();
+				gbCalculations.Append(new Choices("quanto é", "calcule", "matemática")); // comando
+				gbCalculations.Append(cCalculations); // adicionar lista de processos*/
+
+				#endregion
+				// Grammars'
+
+				#region Grammars
+				Grammar gChats = new Grammar(gbChats); // gramática das conversas
+				gChats.Name = "Chats"; // damos um nome para a gramática, pois vamos usa isso mais adiante
+
+				Grammar gDumme = new Grammar(gbDumme);
+				gDumme.Name = "Dumme"; // nome
+
+				Grammar gCommands = new Grammar(gbCommands); // gramática dos comandos
+				gCommands.Name = "Commands"; // nome 
+
+				Grammar gProcess = new Grammar(gbProcess);
+				gProcess.Name = "Process";
+				// Agora vamos carregar as gramáticas
+
+				
+				Grammar gControls = new Grammar(gbControls);
+				gControls.Name = "Control";
+
+				Grammar LoteGramar = new Grammar(gbLote);
+				LoteGramar.Name = "ComandsLote"; // nome
+
+				/*Grammar gCalculations = new Grammar(gbCalculations);
+				gCalculations.Name = "Calculations";*/
+
+				#endregion
+				// podemos fazer de várias maneiras, por enquanto vou fazer o seguinte
+				// Lista de gramáticas 
+
+				#region List of Grammars
+				List<Grammar> grammars = new List<Grammar>();
+				grammars.Add(gChats);
+				grammars.Add(gDumme);
+				grammars.Add(gCommands); // comandos
+				grammars.Add(gControls);
+				//grammars.Add(gCalculations);
+				grammars.Add(gProcess);
+				grammars.Add(LoteGramar);
+				
+				ParallelOptions op = new ParallelOptions() { MaxDegreeOfParallelism = 4 };
+				Parallel.For(0, grammars.Count, op, i => // loop paralelo
+					{
+						sre.LoadGrammar(grammars[i]); // carregar gramática
+					});
+
+				#endregion
+
+				#region SpeechEngine Events
+				speechRecognitionActived = true; // reconhecimento de voz ativo!
+				sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(reconhecido); // evento do reconhecimento
+				sre.AudioLevelUpdated += new EventHandler<AudioLevelUpdatedEventArgs>(audioElevou); // quando o aúdio é elevadosre
+				sre.SpeechRecognitionRejected += new EventHandler<SpeechRecognitionRejectedEventArgs>(rejeitado); // quando o reconhecimento de voz falhou
+				sre.SpeechDetected += new EventHandler<SpeechDetectedEventArgs>(vozDetectada); // alguma voz foi detectada
+				sre.LoadGrammarCompleted += new EventHandler<LoadGrammarCompletedEventArgs>(loaded); // gramática carregada
+				sre.RecognizeAsync(RecognizeMode.Multiple); // iniciar o reconhecimento async e múltiplo
+
+				#endregion
+			
+			}catch (Exception ex)
+            {
+                MessageBox.Show("Não consigo fazer reconhecimento de voz devido a esse erro:" + ex.Message);
+                MessageBox.Show("Estou abrindo o chat para que possamos conversar");
+                chatBotMsg msgBot = new chatBotMsg();
+				msgBot.Show();
+				
+            }
+			
         }
 
         public Form1()
@@ -300,6 +320,11 @@ namespace JARVIS
             InitializeComponent();
         }
 
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            // Seu código aqui
+            //Speaker.Speak("Tudo pronto, já pode falar");
+        }
 
         // Método chamado quando o Form for carregado
         private void Form1_Load(object sender, EventArgs e)
@@ -339,8 +364,11 @@ namespace JARVIS
         // Método do evento do reconhecimento
         private void reconhecido(object s, SpeechRecognizedEventArgs e) // passamos a classe EventArgs SpeechRecognized
         {
-            string speech = e.Result.Text; // criamos uma variável que contêm a palavra ou frase reconhecida
-            double confidence = e.Result.Confidence; // criamos uma variável para a confiança
+            var EResult = e.Result;
+            string speech = EResult.Text; // criamos uma variável que contêm a palavra ou frase reconhecida
+            double confidence = EResult.Confidence; // criamos uma variável para a confiança
+            //string EGramar = e.Result.Grammar.Name;
+
             if (confidence > 0.4)// pegar o resultado da confiança, se for maior que 40% faz algo
             {
                 label1.Text = "Reconhecido:\n" + speech; // mostrar o que foi reconhecido
@@ -430,6 +458,11 @@ namespace JARVIS
                 }
             }
         }
+
+
+
+
+
 
         public void loadPage()
         {

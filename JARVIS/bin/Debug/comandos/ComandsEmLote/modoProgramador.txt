@@ -1,0 +1,1 @@
+text=modo programador|modo desenvolvedor;resposta=sim senhor|ativando modo programador;executar=http://desenvolver.com|cmd|calc;

@@ -1,7 +1,1 @@
-bloco de notas>>notepad>>noteped|notepad
-prompt de comando>>c m d|cmd
-windows media player>>rodar musica|wmplayer
-gerenciador de tarefas|taskmgr
-minhas pastas>>explorar arquivos|explorer
-calculadora>>fazer matematica|calc
 navegador|chrome

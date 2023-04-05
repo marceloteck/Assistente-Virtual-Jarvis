@@ -2,8 +2,8 @@ bloco de notas|notepad
 prompt de comando|cmd
 windows media player|wmplayer
 gerenciador de tarefas|taskmgr
-minhas pastas|explorer
-calculadora>>Explorador de Arquivos|calc
+minhas pastas>>Explorador de Arquivos|explorer
+calculadora|calc
 mapa de caracteres|charmap
 limpeza de disco|cleanmgr
 gerenciamento de cores|colorcpl

@@ -231,6 +231,7 @@ namespace JARVIS
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "JARVIS Tecck";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
