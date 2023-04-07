@@ -46,13 +46,16 @@ namespace JARVIS.Class_Conversas.Listas
         public static IList<string> PareFalar   = new List<string>();
         public static IList<string> LsdeComands = new List<string>();
         public static IList<string> ProcessosDetalhes = new List<string>();
+        public static IList<string> Exec = new List<string>();
 
         static InternoComands()
         {
+            string exec             = Path.Combine(Application.StartupPath, "comandos/interno/execute.txt");
             string StopF            = Path.Combine(Application.StartupPath, "comandos/interno/StopSpeak.txt");
             string AddComands       = Path.Combine(Application.StartupPath, "comandos/interno/AddComands.txt");
             string DetlhProcessos   = Path.Combine(Application.StartupPath, "comandos/interno/DetlhProcessos.txt");
 
+            configList.AddList(exec,       (List<string>)Exec);
             configList.AddList(StopF,       (List<string>)PareFalar);
             configList.AddList(AddComands,  (List<string>)LsdeComands);
             configList.AddList(DetlhProcessos,  (List<string>)ProcessosDetalhes);
@@ -60,6 +63,7 @@ namespace JARVIS.Class_Conversas.Listas
         }
     }   
     
+
     // CLASS COMANDOS EM LOTE
     public static class ComandsLotesG
     {

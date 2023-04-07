@@ -1,7 +1,9 @@
 ﻿using JARVIS.Class_Conversas;
 using JARVIS.Class_Conversas.Listas;
+using JARVIS.RedeNeural;
 using System;
 using System.Diagnostics; // namespace usado
+using System.Drawing;
 using System.Linq;
 using System.Speech.Recognition;
 
@@ -39,51 +41,91 @@ namespace JARVIS
                 }
             }
         }
-		
-		public static void OpenOrClose(string proc)
-		{
 
-            if (proc.StartsWith("abrir") || proc.StartsWith("abra") || proc.StartsWith("abre"))
-            {
-                proc = proc.Replace("abrir", ""); // remove o comando
-                proc = proc.Replace("abra", ""); // remove o comando
-                proc = proc.Replace("abre", ""); // remove o comando
+        public static void OpenOrClose(string proc)
+        {
+            // VERIFICAÇÃO DE PALAVRAS
+            string[] TextArr = InternoComands.Exec.ToArray();
+            string[] arrStr = proc.Split(' ');
+
+            bool openF = false;
+            bool fecharF = false;
+            int openLetter = similarity.LevenshteinDistance("abri", arrStr[0]);
+            int fecharLetter = similarity.LevenshteinDistance("fecha", arrStr[0]);
+            // VERIFICAÇÃO DE PALAVRAS
+
+            // VALIDAÇÃO DE PALAVRAS
+            if (openLetter >= 0 && openLetter <= 3)
+                {
+                    openF = true; 
+                }
+                else if(fecharLetter >= 0 && fecharLetter <= 3)
+                {
+                    fecharF = true;
+                }
+            // VALIDAÇÃO DE PALAVRAS
+
+            // if (proc.StartsWith("abrir"))
+            if (openF == true)
+                 {
+
+                foreach (string palavra in TextArr)
+                {
+                    proc = proc.Replace(palavra, ""); // remove a palavra
+                }
                 proc = proc.Trim(); // remove espaços m branco
+
+
                 Speaker.SpeakOpenningProcess(proc);
 
-                if (cProcessWin.ProgramasWin.Any(x => x == proc))
-                {
-                    WinComds(proc);
-                }
-                else if (WebList.ComandsWEB.Any(x => x == proc))
-                {
-                    WebComds(proc);
-                }
-                else
-                {
-                    ShellComands.ShellSpeech(proc);
-                }
-            }
-            else if (proc.StartsWith("fechar") || proc.StartsWith("feche"))
-            {
-                proc = proc.Replace("fechar", "");
-                proc = proc.Replace("feche", "");
-                proc = proc.Trim();
-
-                if (cProcessWin.ProgramasWin.Any(x => x == proc))
-                {
-                    foreach (string programa in cProcessWin.FileRead)
+                    if (cProcessWin.ProgramasWin.Any(x => x == proc))
                     {
-                        string[] partes = programa.Split('|');
-                        if (partes[0].Equals(proc, StringComparison.OrdinalIgnoreCase))
-                        {
-                            CloseProcess(partes[1], proc);
-                            break;
-                        }
+                        WinComds(proc);
                     }
-
+                    else if (WebList.ComandsWEB.Any(x => x == proc))
+                    {
+                        WebComds(proc);
+                    }
+                    else
+                    {
+                        ShellComands.ShellSpeech(proc);
+                    }
                 }
-            }
+                else if (fecharF == true)
+                {
+
+                    foreach (string palavra in TextArr)
+                    {
+                        proc = proc.Replace(palavra, ""); // remove a palavra
+                    }
+                    proc = proc.Trim(); // remove espaços m branco
+
+
+
+                if (cProcessWin.ProgramasWin.Any(x => x == proc))
+                    {
+                        foreach (string programa in cProcessWin.FileRead)
+                        {
+                            string[] partes = programa.Split('|');
+                            if (partes[0].Equals(proc, StringComparison.OrdinalIgnoreCase))
+                            {
+                                CloseProcess(partes[1], proc);
+                                break;
+                            }
+                        }
+
+                    }
+                }
+
+
+            
+
+
+
+
+
+
+
         }
         private static void CloseProcess(string cmd, string proc)
 		{
