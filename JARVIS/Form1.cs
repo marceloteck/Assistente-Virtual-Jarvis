@@ -17,6 +17,11 @@ using System.Web.UI;
 using JARVIS.Class_Conversas.Listas;
 using JARVIS.Class_Conversas;
 using JARVIS.Forms;
+using NAudio.Wave;
+using NAudio.CoreAudioApi;
+using JARVIS.Reconhecimento;
+using System.Security.Cryptography.X509Certificates;
+using System.Reflection;
 
 namespace JARVIS
 {
@@ -24,32 +29,32 @@ namespace JARVIS
     {
         // Forms
         public static WebLoader webLoader = null;
-        private static ProcessList processList = null;
-        private static AppsDialog appsDialog = null;
-        private LoadingSystem loadingSystem = null;
-        private SelectVoice selectVoice = null;
-        private MotionDetection motionDetection = null;
-        private PersonIdentifier personId = null;
+        public static ProcessList processList = null;
+        public static AppsDialog appsDialog = null;
+        public LoadingSystem loadingSystem = null;
+        public SelectVoice selectVoice = null;
+        public MotionDetection motionDetection = null;
+        public PersonIdentifier personId = null;
 
-        private SpeechRecognitionEngine sre; // declarando o reconhecedor
+        public SpeechRecognitionEngine sre; // declarando o reconhecedor
 
         // Aqui vão ficar alguns objetos básicos
-        private string[] voices = GetVoices.GetVoicesFromCulture("pt-BR"); // pegar vozes em português
+        public string[] voices = GetVoices.GetVoicesFromCulture("pt-BR"); // pegar vozes em português
 
-        private Dictionary<string, string> dictCmdSites = new Dictionary<string, string>(); // dicionário dos comandos
+        public Dictionary<string, string> dictCmdSites = new Dictionary<string, string>(); // dicionário dos comandos
 
-        private bool speechRecognitionActived = false; // booleana do reconhecimento
+        public bool speechRecognitionActived = false; // booleana do reconhecimento
 
-        private bool comboBoxVisible = true;
-        private Random rnd = new Random(); // rand
+        public bool comboBoxVisible = true;
+        public static Random rnd = new Random(); // rand
 
         // array de notícias
-        private G1NewsItem[] newsFromG1;
-        int newsIndex = 0;
+        public G1NewsItem[] newsFromG1;
+        public int newsIndex = 0;
 
-        
+
         // Método pra setar a voz
-        private void SetVoice() // percorrer vozes e tentar setar a primeira
+        public void SetVoice() // percorrer vozes e tentar setar a primeira
         {
             int counter = 0; // contador
             if (voices.Length == 0)
@@ -69,15 +74,24 @@ namespace JARVIS
             }
         }
 
-        
+   
         private void LoadSpeechRecognition() // fazer o que é preciso para o reconhecimento de voz
         {
-			try{
-                //Speaker.Speak("Estou carregando meu nucleo");
-				sre = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("pt-BR")); // instanciando  o reconhecedor passando a cultura da engine
-				sre.SetInputToDefaultAudioDevice(); // definindo o microfone como entrada de aúdio
+            try
+            {
 
-				Choices cControls = new Choices();
+                //Speaker.Speak("Estou carregando meu nucleo");
+                sre = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("pt-BR")); // instanciando  o reconhecedor passando a cultura da engine
+                sre.SetInputToDefaultAudioDevice(); // definindo o microfone como entrada de aúdio
+            }
+            catch (Exception ex) // deu mal
+            {
+                string es = ex.Message;
+                msgErroRec(es);
+            }
+
+
+            Choices cControls = new Choices();
 				cControls.Add(cControlsList.Controlls.ToArray());
 
 				// Alarme
@@ -110,7 +124,7 @@ namespace JARVIS
 
 
 
-
+                #region comandos
                 /*cCommands.Add("que dia é hoje");
 				cCommands.Add("data de hoje");
 				cCommands.Add("em que mês estamos");
@@ -190,10 +204,10 @@ namespace JARVIS
 				cCommands.Add("salvar este arquivo");
 				cCommands.Add("selecionar tudo");
 				cCommands.Add("nova linha");
+                #endregion
 
-
-				// Define as opções de reconhecimento de fala
-				Choices opcoes = new Choices();
+                // Define as opções de reconhecimento de fala
+                Choices opcoes = new Choices();
 				opcoes.Add(ComandsLotesG.ListLote.ToArray());
 				
 
@@ -237,7 +251,8 @@ namespace JARVIS
 				gbLote.Append(opcoes);
 
 				GrammarBuilder gbProcess = new GrammarBuilder();
-				gbProcess.Append(new Choices("abrir", "abra", "abre", "fechar", "feche")); // comando
+				//gbProcess.Append(new Choices("abrir", "abra", "abre", "fechar", "feche")); // comando
+				gbProcess.Append(new Choices(InternoComands.Exec.ToArray())); // comando
 				gbProcess.Append(cProcess);
 				
 				/*GrammarBuilder gbCalculations = new GrammarBuilder();
@@ -291,8 +306,8 @@ namespace JARVIS
 						sre.LoadGrammar(grammars[i]); // carregar gramática
 					});
 
-				#endregion
-
+                #endregion
+            try { 
 				#region SpeechEngine Events
 				speechRecognitionActived = true; // reconhecimento de voz ativo!
 				sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(reconhecido); // evento do reconhecimento
@@ -306,13 +321,18 @@ namespace JARVIS
 			
 			}catch (Exception ex)
             {
-                MessageBox.Show("Não consigo fazer reconhecimento de voz devido a esse erro:" + ex.Message);
-                MessageBox.Show("Estou abrindo o chat para que possamos conversar");
-                chatBotMsg msgBot = new chatBotMsg();
-				msgBot.Show();
-				
+                string es = ex.Message;
+                msgErroRec(es);
             }
 			
+        }
+
+        public static void msgErroRec(string ex)
+        {
+            MessageBox.Show("Não consigo fazer reconhecimento de voz devido a esse erro:" + ex);
+            MessageBox.Show("Estou abrindo o chat para que possamos conversar");
+            chatBotMsg msgBot = new chatBotMsg();
+            msgBot.Show();
         }
 
         public Form1()
@@ -367,95 +387,104 @@ namespace JARVIS
             var EResult = e.Result;
             string speech = EResult.Text; // criamos uma variável que contêm a palavra ou frase reconhecida
             double confidence = EResult.Confidence; // criamos uma variável para a confiança
-            //string EGramar = e.Result.Grammar.Name;
+            string EGramar = e.Result.Grammar.Name;
+
+            RcLabel.Text = "Rec:\n" + Math.Round(confidence, 2);
 
             if (confidence > 0.4)// pegar o resultado da confiança, se for maior que 40% faz algo
             {
-                label1.Text = "Reconhecido:\n" + speech; // mostrar o que foi reconhecido
+                label1.Text = "Reconhecido:\n" +  speech; // mostrar o que foi reconhecido
 
-                
-                switch (e.Result.Grammar.Name) // vamos usar o nome da gramática para executar as ações
-                {
-                    case "Chats": // caso for uma conversa
-                        Conversation.SaySomethingFor(speech); // vamos usar a classe que faz algo sobre
-                        break;
+                Rec rec = new Rec();
+                rec.reconhecimento(speech, EGramar);
 
-                    case "Dumme":
-                        if (DummeIn.InStartingConversation.Any(x => x == speech))
-                        {
-                            int randIndex = rnd.Next(0, DummeOut.OutStartingConversation.Count);
-                            Speaker.Speak(DummeOut.OutStartingConversation[randIndex]);
-                        }
-                        else if (DummeIn.InQuestionForDumme.Any(x => x == speech))
-                        {
-                            int randIndex = rnd.Next(0, DummeOut.OutQuestionForDumme.Count);
-                            Speaker.Speak(DummeOut.OutQuestionForDumme[randIndex]);
-                        }
-                        else if(DummeIn.InDoWork.Any(x => x == speech))
-                        {
-                            int randIndex = rnd.Next(0, DummeOut.OutDoWork.Count);
-                            Speaker.Speak(DummeOut.OutDoWork[randIndex]);
-                        }
-                        else if(DummeIn.InDummeStatus.Any(x => x == speech))
-                        {
-                            int randIndex = rnd.Next(0, DummeOut.OutDummeStatus.Count);
-                            Speaker.Speak(DummeOut.OutDummeStatus[randIndex]);
-                        }
-                        else if (DummeIn.InJarvis.Any(x => x == speech))
-                        {
-                            int randIndex = rnd.Next(0, DummeOut.OutJarvis.Count);
-                            Speaker.Speak(DummeOut.OutJarvis[randIndex]);
-                        }
-                        break;
-                    case "Commands":
-                        switch (speech)
-                        {
-                            case "quais são as notícias":
-                                newsFromG1 = G1FeedNews.GetNews();
-                                Speaker.Speak("Já carreguei as notícias");
-                                break;
-                            case "próxima notícia":
-                                Speaker.Speak("Título da notícia.. " + newsFromG1[newsIndex].Title
-                                    + " .. " + newsFromG1[newsIndex].Text);
-                                newsIndex++;
-                                break;
-                        }
-                        if (speech == "até mais jarvis")
-                        {
-                            ExitNow(); // chama oo método
-                        }
-                        else if (speech == "minimizar a janela principal")
-                        {
-                            MinimizeWindow(); // minimizar
-                        }
-                        else if (speech == "mostrar janela principal")
-                        {
-                            BackWindowToNormal(); // mostrar janela principal
-                        }
-                        else
-                        {
-                            Commands.Execute(speech);
-                        }
-                        break;
-                    case "Jokes":
-                        break;
-                    case "Calculations":
-                        Calculations.DoCalculation(speech);
-                        break;
-                    case "Process":
-                        ProcessControl.OpenOrClose(speech);
-                        break;
-                    case "Control":
-                        motionDetection = new MotionDetection();
-                        motionDetection.Show();
-                        break;
-                    case "ComandsLote":
-                        LoteComands.Executar(speech);
-                        break;
-                    default: // caso padrão
-                        Speaker.Speak(AIML.GetOutputChat(speech)); // pegar resposta
-                        break;
-                }
+                #region Antigo switch
+                /*
+                 switch (e.Result.Grammar.Name) // vamos usar o nome da gramática para executar as ações
+                 {
+                     case "Chats": // caso for uma conversa
+                         Conversation.SaySomethingFor(speech); // vamos usar a classe que faz algo sobre
+                         break;
+
+                     case "Dumme":
+                         if (DummeIn.InStartingConversation.Any(x => x == speech))
+                         {
+                             int randIndex = rnd.Next(0, DummeOut.OutStartingConversation.Count);
+                             Speaker.Speak(DummeOut.OutStartingConversation[randIndex]);
+                         }
+                         else if (DummeIn.InQuestionForDumme.Any(x => x == speech))
+                         {
+                             int randIndex = rnd.Next(0, DummeOut.OutQuestionForDumme.Count);
+                             Speaker.Speak(DummeOut.OutQuestionForDumme[randIndex]);
+                         }
+                         else if(DummeIn.InDoWork.Any(x => x == speech))
+                         {
+                             int randIndex = rnd.Next(0, DummeOut.OutDoWork.Count);
+                             Speaker.Speak(DummeOut.OutDoWork[randIndex]);
+                         }
+                         else if(DummeIn.InDummeStatus.Any(x => x == speech))
+                         {
+                             int randIndex = rnd.Next(0, DummeOut.OutDummeStatus.Count);
+                             Speaker.Speak(DummeOut.OutDummeStatus[randIndex]);
+                         }
+                         else if (DummeIn.InJarvis.Any(x => x == speech))
+                         {
+                             int randIndex = rnd.Next(0, DummeOut.OutJarvis.Count);
+                             Speaker.Speak(DummeOut.OutJarvis[randIndex]);
+                         }
+                         break;
+                     case "Commands":
+                         switch (speech)
+                         {
+                             case "quais são as notícias":
+                                 newsFromG1 = G1FeedNews.GetNews();
+                                 Speaker.Speak("Já carreguei as notícias");
+                                 break;
+                             case "próxima notícia":
+                                 Speaker.Speak("Título da notícia.. " + newsFromG1[newsIndex].Title
+                                     + " .. " + newsFromG1[newsIndex].Text);
+                                 newsIndex++;
+                                 break;
+                         }
+                         if (speech == "até mais jarvis")
+                         {
+                             ExitNow(); // chama oo método
+                         }
+                         else if (speech == "minimizar a janela principal")
+                         {
+                             MinimizeWindow(); // minimizar
+                         }
+                         else if (speech == "mostrar janela principal")
+                         {
+                             BackWindowToNormal(); // mostrar janela principal
+                         }
+                         else
+                         {
+                             Commands.Execute(speech);
+                         }
+                         break;
+                     case "Jokes":
+                         break;
+                     case "Calculations":
+                         Calculations.DoCalculation(speech);
+                         break;
+                     case "Process":
+                         ProcessControl.OpenOrClose(speech);
+                         break;
+                     case "Control":
+                         motionDetection = new MotionDetection();
+                         motionDetection.Show();
+                         break;
+                     case "ComandsLote":
+                         LoteComands.Executar(speech);
+                         break;
+                     default: // caso padrão
+                         Speaker.Speak(AIML.GetOutputChat(speech)); // pegar resposta
+                         break;
+                 }
+                 */
+                #endregion
+
             }
         }
 
@@ -668,7 +697,7 @@ namespace JARVIS
         }
 
         // Sair do jarvis 
-        private void ExitNow()
+        public void ExitNow()
         {
             Speaker.SpeakSync("certo, até mais, senhor!"); // diz algo
             this.Close(); // fecha tudo o que é do jarvis

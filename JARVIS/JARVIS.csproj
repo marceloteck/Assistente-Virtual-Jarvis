@@ -248,8 +248,10 @@
     <Compile Include="Class_Conversas\SoundEffects.cs" />
     <Compile Include="Class_Conversas\Speaker.cs" />
     <Compile Include="Class_Conversas\SpecialCommands.cs" />
+    <Compile Include="Reconhecimento\Rec.cs" />
     <Compile Include="RedeNeural\FileManager.cs" />
     <Compile Include="RedeNeural\NeuralNetwork.cs" />
+    <Compile Include="RedeNeural\similarity.cs" />
     <Compile Include="StaticWebLoader.cs" />
     <Compile Include="SystemInfo.cs" />
     <Compile Include="Forms\TextEditor.cs">
@@ -285,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AudioRecorder.resx">
       <DependentUpon>AudioRecorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\chatBotMsg.resx">
+      <DependentUpon>chatBotMsg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CommandList.resx">
       <DependentUpon>CommandList.cs</DependentUpon>

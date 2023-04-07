@@ -35,5 +35,11 @@ namespace JARVIS
             Microfone micc = new Microfone();
             micc.Show();
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            chatBotMsg chat = new chatBotMsg();
+            chat.Show();
+        }
     }
 }

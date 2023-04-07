@@ -46,6 +46,7 @@ namespace JARVIS
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.RcLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
@@ -197,6 +198,17 @@ namespace JARVIS
             this.label5.Text = "Menu";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // RcLabel
+            // 
+            this.RcLabel.AutoSize = true;
+            this.RcLabel.BackColor = System.Drawing.Color.Transparent;
+            this.RcLabel.ForeColor = System.Drawing.Color.Transparent;
+            this.RcLabel.Location = new System.Drawing.Point(32, 203);
+            this.RcLabel.Name = "RcLabel";
+            this.RcLabel.Size = new System.Drawing.Size(27, 13);
+            this.RcLabel.TabIndex = 13;
+            this.RcLabel.Text = "Rec";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +218,7 @@ namespace JARVIS
             this.BackgroundImage = global::JARVIS.Properties.Resources.ai_technology_microchip_background_digital_transformation_concept_950x500;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(720, 350);
+            this.Controls.Add(this.RcLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.trackBar1);
@@ -256,6 +269,7 @@ namespace JARVIS
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label RcLabel;
     }
 }
 
