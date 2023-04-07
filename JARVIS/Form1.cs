@@ -102,6 +102,7 @@ namespace JARVIS
 				// Criação das Gramáticas, Choices
 				Choices cChats = new Choices(); // palavras ou frases de conversa
 				cChats.Add(cChatsList.Conversa.ToArray());
+				cChats.Add(InternoComands.ConversaSpeech.ToArray());
 				
 
 
@@ -137,73 +138,8 @@ namespace JARVIS
                 cCommands.Add(InternoComands.PareFalar.ToArray());
 
 
-                cCommands.Add("minimizar a janela principal");
-				cCommands.Add("mostrar janela principal");
-
-
-                // status do usuário
-                cCommands.Add("estou com sono");
-				cCommands.Add("estou indo dormir");
-
-				// sair do JARVIS
-				cCommands.Add("até mais jarvis");
-				
-				
-
-				// notícias 
-				cCommands.Add("quais são as notícias");
-				cCommands.Add("próxima notícia");
-				
-				// media player
-				cCommands.Add("media player");
-				cCommands.Add("selecionar arquivo para o media player");
-				cCommands.Add("pausar");
-				cCommands.Add("continuar");
-				cCommands.Add("parar");
-				cCommands.Add("fechar media player");
-				cCommands.Add("abrir diretório para reproduzir");
-				cCommands.Add("próximo");
-				cCommands.Add("anterior");
-				cCommands.Add("aumentar volume do media player");
-				cCommands.Add("diminuir volume do media player");
-				cCommands.Add("media player sem som");
-				cCommands.Add("media player com som");
-				cCommands.Add("media player em tela cheia");
-				cCommands.Add("que arquivo está tocando");
-				cCommands.Add("reproduza algum vídeo");
-				cCommands.Add("reproduza alguma música");
-
-				// informações do sistema
-				cCommands.Add("em quanto estar o uso do processador?");
-				cCommands.Add("quanta memória ram estar sendo usada?");
-				cCommands.Add("quanta mamória ram ainda há livre?");
-				cCommands.Add("quanta memória ram há no total?");
-
-				// Comandos, adicionar
-				cCommands.Add("adicionar novo comando");
-				// processos
-				cCommands.Add(InternoComands.ProcessosDetalhes.ToArray());
-				// processList
-				cCommands.Add("lista de processos");
-				cCommands.Add("fechar o processo selecionado");
-				// jarvis
-				cCommands.Add("introdução ao assistente jarvis");
-
-				cCommands.Add("desligar computador");
-				cCommands.Add("reiniciar computador");
-				cCommands.Add("cancelar desligamento");
-				cCommands.Add("cancelar reinicialização");
-
-				// controle de janelas
-				cCommands.Add("alterar de janela");
-				cCommands.Add("fechar janela");
-
-				// comandos de teclas
-				cCommands.Add("copiar texto selecionado");
-				cCommands.Add("colar texto selecionado");
-				cCommands.Add("salvar este arquivo");
-				cCommands.Add("selecionar tudo");
-				cCommands.Add("nova linha");
+                cCommands.Add(InternoComands.divers.ToArray());
+                
                 #endregion
 
                 // Define as opções de reconhecimento de fala

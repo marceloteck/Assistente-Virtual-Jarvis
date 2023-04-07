@@ -1,0 +1,44 @@
+minimizar a janela principal
+mostrar janela principal
+estou com sono
+estou indo dormir
+até mais jarvis
+quais são as notícias
+próxima notícia
+media player
+selecionar arquivo para o media player
+pausar
+continuar
+parar
+fechar media player
+abrir diretório para reproduzir
+próximo
+anterior
+aumentar volume do media player
+diminuir volume do media player
+media player sem som
+media player com som
+media player em tela cheia
+que arquivo está tocando
+reproduza algum vídeo
+reproduza alguma música
+em quanto estar o uso do processador?
+quanta memória ram estar sendo usada?
+quanta mamória ram ainda há livre?
+quanta memória ram há no total?
+adicionar novo comando
+cCommands.Add(InternoComands.ProcessosDetalhes.ToArray());
+lista de processos
+fechar o processo selecionado
+introdução ao assistente jarvis
+desligar computador
+reiniciar computador
+cancelar desligamento
+cancelar reinicialização
+alterar de janela
+fechar janela
+copiar texto selecionado
+colar texto selecionado
+salvar este arquivo
+selecionar tudo
+nova linha

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.IO;
+using JARVIS.Class_Conversas.Listas;
+using System.Speech.Recognition;
 
 namespace JARVIS
 {
@@ -34,23 +37,63 @@ namespace JARVIS
                     	break;
                     }
                     break;
-                 case "boa tarde": // boa tarde
-                    Speaker.Speak("boa tarde, senhor");
-                    break;
-                    
-                 case "boa noite":
-                    Speaker.Speak("boa noite, tudo bem?");
-                    break;
-                case "ainda acordado jarvis?":
-                    Speaker.Speak("obrigado por perguntar senhor, mas eu não durmo..");
-                    break;
-                case "alguma ideia jarvis?":
-                    Speaker.Speak("não senhor");
-                    break;
-                case "obrigado jarvis":
-                    Speaker.Speak("por nada, senhor");
-                    break;
             }
+
+            if (InternoComands.ConversaSpeech.Any(x => x == phrase))
+            {
+                foreach (string programa in InternoComands.ConversaReader)
+                {
+                    string[] partes = programa.Split('|');
+                    string[] coms = partes[0].Split(new string[] { ">>" }, StringSplitOptions.RemoveEmptyEntries);
+
+                    foreach (string comds in coms)
+                    {
+                        if (comds.Equals(phrase, StringComparison.OrdinalIgnoreCase))
+                        {
+                            string[] Fll = partes[1].Split(new string[] { ">>" }, StringSplitOptions.RemoveEmptyEntries);
+                            Speaker.SpeakRand(Fll);
+
+                            break;
+                        }
+                    }
+                    
+
+
+
+                }
+
+            }
+
+
+
         }
+
+
+
+
+        public static void AddIListS(string name, List<string> list)
+        {
+            using (StreamReader reader = new StreamReader(name))
+            {
+                string linha;
+                while ((linha = reader.ReadLine()) != null)
+                {
+                    string[] parts = linha.Split('|');
+                    string[] list_a = parts[0].Split(new string[] { ">>" }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string lineA in list_a)
+                    {
+                        list.Add(lineA + "|" + parts[1]);
+                    }
+                }
+            }
+
+        }
+
+
+
+
+
+
     }
 }
+

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -43,22 +44,30 @@ namespace JARVIS.Class_Conversas.Listas
     //CLASS DE COMANDOS INTERNOS NA IA
     public static class InternoComands
     {
-        public static IList<string> PareFalar   = new List<string>();
-        public static IList<string> LsdeComands = new List<string>();
+        public static IList<string> PareFalar         = new List<string>();
+        public static IList<string> ConversaSpeech    = new List<string>();
+        public static IList<string> ConversaReader    = new List<string>();
+        public static IList<string> LsdeComands       = new List<string>();
         public static IList<string> ProcessosDetalhes = new List<string>();
-        public static IList<string> Exec = new List<string>();
+        public static IList<string> Exec              = new List<string>();
+        public static IList<string> divers            = new List<string>();
 
         static InternoComands()
         {
             string exec             = Path.Combine(Application.StartupPath, "comandos/interno/execute.txt");
+            string Conversa         = Path.Combine(Application.StartupPath, "comandos/Conversas/Speech.txt");
             string StopF            = Path.Combine(Application.StartupPath, "comandos/interno/StopSpeak.txt");
             string AddComands       = Path.Combine(Application.StartupPath, "comandos/interno/AddComands.txt");
             string DetlhProcessos   = Path.Combine(Application.StartupPath, "comandos/interno/DetlhProcessos.txt");
+            string diversos         = Path.Combine(Application.StartupPath, "comandos/interno/diversos.txt");
 
-            configList.AddList(exec,       (List<string>)Exec);
-            configList.AddList(StopF,       (List<string>)PareFalar);
-            configList.AddList(AddComands,  (List<string>)LsdeComands);
+            configList.AddList(exec,            (List<string>)Exec);
+            configList.AddList(Conversa,        (List<string>)ConversaSpeech);
+            Conversation.AddIListS(Conversa,    (List<string>)ConversaReader);
+            configList.AddList(StopF,           (List<string>)PareFalar);
+            configList.AddList(AddComands,      (List<string>)LsdeComands);
             configList.AddList(DetlhProcessos,  (List<string>)ProcessosDetalhes);
+            configList.AddList(diversos,        (List<string>)divers);
 
         }
     }   
