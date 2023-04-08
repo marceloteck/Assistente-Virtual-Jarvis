@@ -15,13 +15,16 @@ using System.Web;
 using JARVIS.Listas;
 using System.Web.UI;
 using JARVIS.Class_Conversas.Listas;
+using JARVIS.RedeNeural;
 using JARVIS.Class_Conversas;
+using JARVIS.ClassGlobal;
 using JARVIS.Forms;
 using NAudio.Wave;
 using NAudio.CoreAudioApi;
 using JARVIS.Reconhecimento;
 using System.Security.Cryptography.X509Certificates;
 using System.Reflection;
+using System.Timers;
 
 namespace JARVIS
 {
@@ -37,6 +40,8 @@ namespace JARVIS
         public PersonIdentifier personId = null;
 
         public SpeechRecognitionEngine sre; // declarando o reconhecedor
+
+        public static bool isIAListening = false;
 
         // Aqui vão ficar alguns objetos básicos
         public string[] voices = GetVoices.GetVoicesFromCulture("pt-BR"); // pegar vozes em português
@@ -79,8 +84,6 @@ namespace JARVIS
         {
             try
             {
-
-                //Speaker.Speak("Estou carregando meu nucleo");
                 sre = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("pt-BR")); // instanciando  o reconhecedor passando a cultura da engine
                 sre.SetInputToDefaultAudioDevice(); // definindo o microfone como entrada de aúdio
             }
@@ -90,149 +93,92 @@ namespace JARVIS
                 msgErroRec(es);
             }
 
-
-            Choices cControls = new Choices();
+                // controle ######
+                Choices cControls = new Choices();
 				cControls.Add(cControlsList.Controlls.ToArray());
+                GrammarBuilder gbControls = new GrammarBuilder();
+                gbControls.Append(cControls);
+                Grammar gControls = new Grammar(gbControls);
+                gControls.Name = "Control";
 
-				// Alarme
-				Choices cAlarm = new Choices();
+
+                // Alarme  ######
+                Choices cAlarm = new Choices();
 				for (int i = 1; i <= 12; i++)
 					cAlarm.Add(i.ToString());
+                GrammarBuilder gbAlarm = new GrammarBuilder();
+                gbAlarm.Append(new Choices("defina alarme", "alarme às", "despertador às"));
+                gbAlarm.Append(cAlarm);
+                gbAlarm.Append(new Choices("horas da manhã", "horas da tarde", "horas da noite"));
 
-				// Criação das Gramáticas, Choices
-				Choices cChats = new Choices(); // palavras ou frases de conversa
+                // Chats  ######
+                Choices cChats = new Choices(); // palavras ou frases de conversa
 				cChats.Add(cChatsList.Conversa.ToArray());
 				cChats.Add(InternoComands.ConversaSpeech.ToArray());
-				
+                GrammarBuilder gbChats = new GrammarBuilder(); // vamos criar um grammaBuilder para as conversas
+                gbChats.Append(cChats); 
+                Grammar gChats = new Grammar(gbChats); // gramática das conversas
+                gChats.Name = "Chats"; // damos um nome para a gramática, pois vamos usa isso mais adiante
 
-
-				Choices cDummes = new Choices(); // conversa mais desenrolada
+                // cDummes  ######
+                Choices cDummes = new Choices(); // conversa mais desenrolada
 				cDummes.Add(DummeIn.InStartingConversation.ToArray());
 				cDummes.Add(DummeIn.InQuestionForDumme.ToArray());
 				cDummes.Add(DummeIn.InDoWork.ToArray());
 				cDummes.Add(DummeIn.InDummeStatus.ToArray());
 				cDummes.Add(DummeIn.InJarvis.ToArray());
+                GrammarBuilder gbDumme = new GrammarBuilder(); // conversa solta
+                gbDumme.Append(cDummes);
+                Grammar gDumme = new Grammar(gbDumme);
+                gDumme.Name = "Dumme"; // nome
 
-				Choices cCommands = new Choices(); // palavras ou frases que são comandos
-				
-				// informações de hora e data
+
+                // cComands   ######
+                Choices cCommands = new Choices(); // palavras ou frases que são comandos
 				cCommands.Add(DataHora.QueHoras.ToArray());
 				cCommands.Add(DataHora.QueData.ToArray());
 				cCommands.Add(DataHora.QueDia.ToArray());
 				cCommands.Add(DataHora.QueDiaSemana.ToArray());
 				cCommands.Add(DataHora.QueMes.ToArray());
 				cCommands.Add(DataHora.QueAno.ToArray());
-
-
-
-                #region comandos
-                /*cCommands.Add("que dia é hoje");
-				cCommands.Add("data de hoje");
-				cCommands.Add("em que mês estamos");
-				cCommands.Add("em que ano estamos");*/
-
-                // Comandos do programa
                 cCommands.Add(InternoComands.LsdeComands.ToArray());
-
-                // configurar o sintetizador
                 cCommands.Add(InternoComands.PareFalar.ToArray());
-
-
                 cCommands.Add(InternoComands.divers.ToArray());
-                
-                #endregion
+                GrammarBuilder gbCommands = new GrammarBuilder(); //para a lista de comandos
+                gbCommands.Append(cCommands); // feito
+                Grammar gCommands = new Grammar(gbCommands); // gramática dos comandos
+                gCommands.Name = "Commands"; // nome 
 
-                // Define as opções de reconhecimento de fala
+
+                // Opções   ######
                 Choices opcoes = new Choices();
 				opcoes.Add(ComandsLotesG.ListLote.ToArray());
-				
-
-				//Choices cNumbers = new Choices(File.ReadAllLines("n.txt")); // números
-				#region Process Choices
-				Choices cProcess = new Choices(); // lista de comandos
-				cProcess.Add(cProcessWin.ProgramasWin.ToArray()) ;
-				cProcess.Add(WebList.ComandsWEB.ToArray()) ;
-				cProcess.Add(ShellList.ShellListComands.ToArray()) ;
-				#endregion
-
-				//cCalculations
-			   /* Choices cCalculations = new Choices(); // lista de comandos
-				cCalculations.Add(DiversosComands.Number.ToArray());*/
+                GrammarBuilder gbLote = new GrammarBuilder();
+                gbLote.Append(new Choices(ComandsLotesG.ChoicesArrList.ToArray())); // comando
+                gbLote.Append(opcoes);
+                Grammar LoteGramar = new Grammar(gbLote);
+                LoteGramar.Name = "ComandsLote"; // nome
 
 
-				Choices cCustomSites = new Choices(); // lista de comandos do usuário
-
-				#region GrammarBuilders
-				// Gramática do alarme
-				GrammarBuilder gbAlarm = new GrammarBuilder();
-				gbAlarm.Append(new Choices("defina alarme", "alarme às", "despertador às"));
-				gbAlarm.Append(cAlarm);
-				gbAlarm.Append(new Choices("horas da manhã", "horas da tarde", "horas da noite"));
-
-				// GrammarsBuilders
-				GrammarBuilder gbChats = new GrammarBuilder(); // vamos criar um grammaBuilder para as conversas
-				gbChats.Append(cChats); // já foi feito
-
-				GrammarBuilder gbDumme = new GrammarBuilder(); // conversa solta
-				gbDumme.Append(cDummes); 
-
-				GrammarBuilder gbCommands = new GrammarBuilder(); //para a lista de comandos
-				gbCommands.Append(cCommands); // feito
-
-				GrammarBuilder gbControls = new GrammarBuilder();
-				gbControls.Append(cControls);
-
-				GrammarBuilder gbLote = new GrammarBuilder();
-				gbLote.Append(new Choices(ComandsLotesG.ChoicesArrList.ToArray())); // comando
-				gbLote.Append(opcoes);
-
-				GrammarBuilder gbProcess = new GrammarBuilder();
-				//gbProcess.Append(new Choices("abrir", "abra", "abre", "fechar", "feche")); // comando
-				gbProcess.Append(new Choices(InternoComands.Exec.ToArray())); // comando
-				gbProcess.Append(cProcess);
-				
-				/*GrammarBuilder gbCalculations = new GrammarBuilder();
-				gbCalculations.Append(new Choices("quanto é", "calcule", "matemática")); // comando
-				gbCalculations.Append(cCalculations); // adicionar lista de processos*/
-
-				#endregion
-				// Grammars'
-
-				#region Grammars
-				Grammar gChats = new Grammar(gbChats); // gramática das conversas
-				gChats.Name = "Chats"; // damos um nome para a gramática, pois vamos usa isso mais adiante
-
-				Grammar gDumme = new Grammar(gbDumme);
-				gDumme.Name = "Dumme"; // nome
-
-				Grammar gCommands = new Grammar(gbCommands); // gramática dos comandos
-				gCommands.Name = "Commands"; // nome 
-
-				Grammar gProcess = new Grammar(gbProcess);
-				gProcess.Name = "Process";
-				// Agora vamos carregar as gramáticas
-
-				
-				Grammar gControls = new Grammar(gbControls);
-				gControls.Name = "Control";
-
-				Grammar LoteGramar = new Grammar(gbLote);
-				LoteGramar.Name = "ComandsLote"; // nome
-
-				/*Grammar gCalculations = new Grammar(gbCalculations);
-				gCalculations.Name = "Calculations";*/
-
-				#endregion
-				// podemos fazer de várias maneiras, por enquanto vou fazer o seguinte
-				// Lista de gramáticas 
+                //Choices cNumbers = new Choices(File.ReadAllLines("n.txt")); // números
+                #region Process Choices
+                Choices cProcess = new Choices(); // lista de comandos
+				cProcess.Add(cProcessWin.ProgramasWin.ToArray());
+				cProcess.Add(WebList.ComandsWEB.ToArray());
+				cProcess.Add(ShellList.ShellListComands.ToArray());
+                GrammarBuilder gbProcess = new GrammarBuilder();
+                gbProcess.Append(new Choices(InternoComands.Exec.ToArray())); // comando
+                gbProcess.Append(cProcess);
+                Grammar gProcess = new Grammar(gbProcess);
+                gProcess.Name = "Process";
+                #endregion
 
 				#region List of Grammars
 				List<Grammar> grammars = new List<Grammar>();
 				grammars.Add(gChats);
 				grammars.Add(gDumme);
-				grammars.Add(gCommands); // comandos
+				grammars.Add(gCommands); 
 				grammars.Add(gControls);
-				//grammars.Add(gCalculations);
 				grammars.Add(gProcess);
 				grammars.Add(LoteGramar);
 				
@@ -278,14 +224,13 @@ namespace JARVIS
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            // Seu código aqui
-            //Speaker.Speak("Tudo pronto, já pode falar");
+            // Saudação
+            InitializingProgram.Start();
         }
 
         // Método chamado quando o Form for carregado
         private void Form1_Load(object sender, EventArgs e)
         {
-            //AIML.ConfigAIMLFiles(); // Configura os arquivos AIML
 
             Thread.CurrentThread.Priority = ThreadPriority.Highest; // setamos o nível de prioridade da thread atual
             
@@ -294,28 +239,17 @@ namespace JARVIS
             trackBar1.Value = 10;
             Speaker.SetVolume(100);
 
-            // detalhes do computador
-            //lblInfo.Text += SystemInfo.GetUserNameString() + "\n";
-            //lblInfo.Text += SystemInfo.GetOSArchString() + "\n";
-
             // Aqui vamos cuidar dos elementos visuais
             progressBar1.Maximum = 100; // valor máximo da progressBar
             pictureBox1.Visible = false; // não vai mostrar a pictureBox1, a que vai ser usada para mostrar o status
             progressBarCPUUsage.Maximum = 100;
 
             SetVoice(); // chamar o método para setar a voz
-
             LoadSpeechRecognition(); // chamar o método que vai fazer o reconhecimento
-
-            // Saudação
-            InitializingProgram.Start();
-
-            //loadingSystem = new LoadingSystem();
-            //loadingSystem.ShowDialog(); // mostrat diálogo
-            //Speaker.Speak("olá senhor, em que posso ajudar?"); // falar algo
-
             timer2.Tick += timer2_Tick; // timer do evento das progressBar's 1,5 segundos de intervalo
         }
+
+        
 
         // Método do evento do reconhecimento
         private void reconhecido(object s, SpeechRecognizedEventArgs e) // passamos a classe EventArgs SpeechRecognized
@@ -331,103 +265,24 @@ namespace JARVIS
             {
                 label1.Text = "Reconhecido:\n" +  speech; // mostrar o que foi reconhecido
 
-                Rec rec = new Rec();
-                rec.reconhecimento(speech, EGramar);
+                if (Words.validadWords(speech, "jarvis"))
+                {
+                    isIAListening = true;
+                }
+                else if (Words.validadWords(speech, "surdo") || Words.validadWords(speech, "escute") || Words.validadWords(speech, "descansa"))
+                {
+                    isIAListening = false;
+                    Speaker.SpeakRand("Estou em modo Pausa, só me chamar quando pecisar!");
+                }
 
-                #region Antigo switch
-                /*
-                 switch (e.Result.Grammar.Name) // vamos usar o nome da gramática para executar as ações
-                 {
-                     case "Chats": // caso for uma conversa
-                         Conversation.SaySomethingFor(speech); // vamos usar a classe que faz algo sobre
-                         break;
-
-                     case "Dumme":
-                         if (DummeIn.InStartingConversation.Any(x => x == speech))
-                         {
-                             int randIndex = rnd.Next(0, DummeOut.OutStartingConversation.Count);
-                             Speaker.Speak(DummeOut.OutStartingConversation[randIndex]);
-                         }
-                         else if (DummeIn.InQuestionForDumme.Any(x => x == speech))
-                         {
-                             int randIndex = rnd.Next(0, DummeOut.OutQuestionForDumme.Count);
-                             Speaker.Speak(DummeOut.OutQuestionForDumme[randIndex]);
-                         }
-                         else if(DummeIn.InDoWork.Any(x => x == speech))
-                         {
-                             int randIndex = rnd.Next(0, DummeOut.OutDoWork.Count);
-                             Speaker.Speak(DummeOut.OutDoWork[randIndex]);
-                         }
-                         else if(DummeIn.InDummeStatus.Any(x => x == speech))
-                         {
-                             int randIndex = rnd.Next(0, DummeOut.OutDummeStatus.Count);
-                             Speaker.Speak(DummeOut.OutDummeStatus[randIndex]);
-                         }
-                         else if (DummeIn.InJarvis.Any(x => x == speech))
-                         {
-                             int randIndex = rnd.Next(0, DummeOut.OutJarvis.Count);
-                             Speaker.Speak(DummeOut.OutJarvis[randIndex]);
-                         }
-                         break;
-                     case "Commands":
-                         switch (speech)
-                         {
-                             case "quais são as notícias":
-                                 newsFromG1 = G1FeedNews.GetNews();
-                                 Speaker.Speak("Já carreguei as notícias");
-                                 break;
-                             case "próxima notícia":
-                                 Speaker.Speak("Título da notícia.. " + newsFromG1[newsIndex].Title
-                                     + " .. " + newsFromG1[newsIndex].Text);
-                                 newsIndex++;
-                                 break;
-                         }
-                         if (speech == "até mais jarvis")
-                         {
-                             ExitNow(); // chama oo método
-                         }
-                         else if (speech == "minimizar a janela principal")
-                         {
-                             MinimizeWindow(); // minimizar
-                         }
-                         else if (speech == "mostrar janela principal")
-                         {
-                             BackWindowToNormal(); // mostrar janela principal
-                         }
-                         else
-                         {
-                             Commands.Execute(speech);
-                         }
-                         break;
-                     case "Jokes":
-                         break;
-                     case "Calculations":
-                         Calculations.DoCalculation(speech);
-                         break;
-                     case "Process":
-                         ProcessControl.OpenOrClose(speech);
-                         break;
-                     case "Control":
-                         motionDetection = new MotionDetection();
-                         motionDetection.Show();
-                         break;
-                     case "ComandsLote":
-                         LoteComands.Executar(speech);
-                         break;
-                     default: // caso padrão
-                         Speaker.Speak(AIML.GetOutputChat(speech)); // pegar resposta
-                         break;
-                 }
-                 */
-                #endregion
-
+                if (isIAListening == true)
+                {
+                    Rec rec = new Rec();
+                    rec.reconhecimento(speech, EGramar);
+                }
+                
             }
         }
-
-
-
-
-
 
         public void loadPage()
         {
@@ -639,45 +494,8 @@ namespace JARVIS
             this.Close(); // fecha tudo o que é do jarvis
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer2_Tick(object sender, EventArgs e)
         {
-            /*
-            if (showMemoryUsage == false) // se mostrar memória usada for falsa, vasmos mostrar memória livre
-            {
-                int memUsage = (int)PCStats.GetTotalMemory() - (int)PCStats.GetFreeMemory();
-                label3.Text = "Memória Usada: " + memUsage.ToString() + " MB";
-                progressBarMemory.Maximum = (int)PCStats.GetTotalMemory();
-                progressBarMemory.Value = memUsage;
-                showMemoryUsage = true;
-
-                double cpuUsage = PCStats.GetCPUUsage();
-                progressBarCPUUsage.Maximum = 100;
-                progressBarCPUUsage.Value = (int)cpuUsage; // uso de CPU
-                label2.Text = "Uso de CPU: " + Math.Round(cpuUsage, 2) + "%";
-            }
-            else
-            {
-                label3.Text = "Memória Livre: " + PCStats.GetFreeMemory().ToString() + " MB";
-                progressBarMemory.Maximum = (int)PCStats.GetTotalMemory();
-                progressBarMemory.Value = (int)PCStats.GetFreeMemory();
-                showMemoryUsage = false;
-
-                double cpuUsage = PCStats.GetCPUUsage();
-                progressBarCPUUsage.Maximum = 100;
-                progressBarCPUUsage.Value = (int)cpuUsage; // uso de CPU
-                label2.Text = "Uso de CPU: " + Math.Round(cpuUsage, 2) + "%";
-            }
-            */
             double cpuUsage = PCStats.GetCPUUsage();
             label2.Text = "Uso de CPU: " + Math.Round(cpuUsage, 2) + "%";
             progressBarCPUUsage.Value =  Convert.ToInt32(cpuUsage);

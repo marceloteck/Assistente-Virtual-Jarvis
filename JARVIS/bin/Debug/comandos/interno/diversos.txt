@@ -42,3 +42,7 @@ colar texto selecionado
 salvar este arquivo
 selecionar tudo
 nova linha
+surdo
+não escute
+Descansa
+descanse

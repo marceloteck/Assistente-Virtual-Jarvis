@@ -141,15 +141,6 @@ namespace JARVIS.Class_Conversas.Listas
         } // end static ComandsLotesG
     } // end ComandsLotesG
 
-
-
-
-
-
-
-
-
-
     // CLASS DE CONFIGURAÇÕES RAPIDAS
     public static class configList
     {
@@ -169,16 +160,9 @@ namespace JARVIS.Class_Conversas.Listas
                     {
                         list.Add(lineA);
                     }
-
                 }
-
-
-
-
-
             }
         }// end AddList
-
     }
 }
 

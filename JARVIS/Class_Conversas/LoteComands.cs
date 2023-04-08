@@ -17,9 +17,6 @@ namespace JARVIS.Class_Conversas
 
             string[] TextArr = ComandsLotesG.ChoicesArrList.ToArray();
 
-           // if (TextArr.Contains(speech))
-           // {
-                //string[] LisRR = ComandsLotesG.ChoicesArrList.ToArray();
                 foreach (string palavra in TextArr)
                 {
                     speech = speech.Replace(palavra, ""); // remove a palavra
@@ -55,7 +52,6 @@ namespace JARVIS.Class_Conversas
                         }    
                     }
                 }
-            //}
         }
     }
 }

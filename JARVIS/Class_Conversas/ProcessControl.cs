@@ -1,6 +1,6 @@
 ﻿using JARVIS.Class_Conversas;
 using JARVIS.Class_Conversas.Listas;
-using JARVIS.RedeNeural;
+using JARVIS.ClassGlobal;
 using System;
 using System.Diagnostics; // namespace usado
 using System.Drawing;

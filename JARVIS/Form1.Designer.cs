@@ -41,12 +41,13 @@ namespace JARVIS
             this.progressBarMemory = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.lblInfo = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.RcLabel = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
@@ -130,7 +131,6 @@ namespace JARVIS
             this.label2.Size = new System.Drawing.Size(85, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Uso de CPU:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -144,13 +144,6 @@ namespace JARVIS
             this.label3.Size = new System.Drawing.Size(87, 16);
             this.label3.TabIndex = 7;
             this.label3.Text = "Uso de RAM:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // timer2
-            // 
-            this.timer2.Enabled = true;
-            this.timer2.Interval = 2500;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // lblInfo
             // 
@@ -209,6 +202,12 @@ namespace JARVIS
             this.RcLabel.TabIndex = 13;
             this.RcLabel.Text = "Rec";
             // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 2500;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,12 +263,13 @@ namespace JARVIS
         private System.Windows.Forms.ProgressBar progressBarMemory;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label RcLabel;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
     }
 }
 

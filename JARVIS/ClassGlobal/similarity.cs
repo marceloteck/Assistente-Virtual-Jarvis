@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JARVIS.RedeNeural
+namespace JARVIS.ClassGlobal
 {
     public static class similarity
     {

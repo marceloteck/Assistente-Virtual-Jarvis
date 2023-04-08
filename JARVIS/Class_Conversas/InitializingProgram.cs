@@ -14,25 +14,25 @@ namespace JARVIS
         {
             DateTime hour = DateTime.Now;
 
-            if (hour.Hour > 5 && hour.Hour <= 10)
+            if (hour.Hour >= 5 && hour.Hour < 12)
             {
-                Speaker.SpeakRand("olá", "oi", "oi, bom dia", "olá, como você está?");
+                Speaker.SpeakRand("olá", "oi", "oi, bom dia", "olá, Estou pronto para ajudar!");
             }
-            else if (hour.Hour > 10 && hour.Hour <= 13)
+            else if (hour.Hour >= 12 && hour.Hour < 18)
             {
-                Speaker.SpeakRand("olá", "oi", "oi, bom dia", "olá, como você está?");
+               Speaker.SpeakRand("olá", "oi", "oi, boa tarde", "olá, Estou pronto para ajudar!");
             }
-            else if (hour.Hour > 12 && hour.Hour <= 18)
+            else if (hour.Hour >= 18 && hour.Hour <= 23)
             {
-                Speaker.SpeakRand("olá", "oi", "oi, bom dia", "olá, como você está?");
+               Speaker.SpeakRand("olá", "oi", "oi, boa noite", "olá, Estou pronto para ajudar!");
             }
-            else if (hour.Hour > 18 && hour.Hour < 24)
+            else if (hour.Hour >= 0 && hour.Hour < 5)
             {
-                Speaker.SpeakRand("olá", "oi", "oi, bom dia", "olá, como você está?");
+               Speaker.SpeakRand("olá", "oi", "oi, bom dia", "olá, Estou pronto para ajudar!");
             }
             else
             {
-                Speaker.SpeakRand("olá", "oi", "oi, bom dia", "olá, como você está?");
+               Speaker.SpeakRand("olá", "oi", "olá, Estou pronto para ajudar!");
             }
         }
     }

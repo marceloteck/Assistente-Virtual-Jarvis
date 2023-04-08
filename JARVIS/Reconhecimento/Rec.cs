@@ -3,6 +3,7 @@ using JARVIS.Class_Conversas;
 using JARVIS.Class_Conversas.Listas;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Speech.Recognition;
 using System.Text;
@@ -100,15 +101,38 @@ namespace JARVIS.Reconhecimento
             }
         }
 
-
+        public static string txtConvert(string speech)
+        {
+            // Converter para minúsculas
+            string textoMinusculo = speech.ToLower();
+            // Remover acentos e caracteres especiais
+            speech = RemoverAcentos(textoMinusculo);
+            return speech;
+        }
 
 
         public void reconhecimentoChat(string speech)
         {
             Form1 form = new Form1();
 
+            
+          speech = txtConvert(speech);
 
-                    if (DummeIn.InStartingConversation.Any(x => x == speech))
+          /*  bool containsSimilarSpeech = false;
+
+            foreach (string startingSpeech in DummeIn.InStartingConversation)
+            {
+                if (startingSpeech.IndexOf(speech, StringComparison.OrdinalIgnoreCase | StringComparison.CurrentCulture) >= 0)
+                {
+                    containsSimilarSpeech = true;
+                    break;
+                }
+            }*/
+
+
+
+
+            if (DummeIn.InStartingConversation.Any(x => x == speech))
                     {
                         int randIndex = Form1.rnd.Next(0, DummeOut.OutStartingConversation.Count);
                         Speaker.Speak(DummeOut.OutStartingConversation[randIndex]);
@@ -150,5 +174,27 @@ namespace JARVIS.Reconhecimento
               
             
         }
+
+        public static string RemoverAcentos(string texto)
+        {
+            string textoNormalizado = texto.Normalize(NormalizationForm.FormD);
+            StringBuilder textoSemAcentos = new StringBuilder();
+
+            for (int i = 0; i < textoNormalizado.Length; i++)
+            {
+                UnicodeCategory categoria = CharUnicodeInfo.GetUnicodeCategory(textoNormalizado[i]);
+                if (categoria != UnicodeCategory.NonSpacingMark)
+                {
+                    textoSemAcentos.Append(textoNormalizado[i]);
+                }
+            }
+
+            return textoSemAcentos.ToString();
+        }
+
+
+
+
+
     }
 }

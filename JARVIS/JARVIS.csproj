@@ -113,6 +113,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassGlobal\Words.cs" />
     <Compile Include="Class_Conversas\Listas\cCommandsList.cs" />
     <Compile Include="Class_Conversas\Listas\cControlsList.cs" />
     <Compile Include="Class_Conversas\Listas\cProcess.cs" />
@@ -251,7 +252,7 @@
     <Compile Include="Reconhecimento\Rec.cs" />
     <Compile Include="RedeNeural\FileManager.cs" />
     <Compile Include="RedeNeural\NeuralNetwork.cs" />
-    <Compile Include="RedeNeural\similarity.cs" />
+    <Compile Include="ClassGlobal\similarity.cs" />
     <Compile Include="StaticWebLoader.cs" />
     <Compile Include="SystemInfo.cs" />
     <Compile Include="Forms\TextEditor.cs">
