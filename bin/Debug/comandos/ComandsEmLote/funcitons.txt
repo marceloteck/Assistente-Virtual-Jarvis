@@ -1,0 +1,6 @@
+[text=todos os programas abertos|programas abertos|processos abertos;
+resposta=Fechando tudo|sim senhor, Fechando processos; 
+executar=StopProcess;]
+[text=editar comandos|adicionar comandos|novos comandos|add comandos;
+resposta=sim senhor|abrindo adicionar comandos|abrindo opções;
+executar=AddComands;]

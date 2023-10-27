@@ -1,0 +1,7 @@
+// para ficar surdo palavras chaves
+offtag={surdo|descansa|não escute|parar de ouvir};
+resposta_offtag={Estou em modo Pausa, só me chamar quando pecisar!|sim senhor, só me chamar quando pecisar!}; // será considerado um texto do inicio ao fim
+
+// palavras chaves pra ficar em silencio
+offSpeaker={fique quieto|silencio|parar de falar|calar a boca}
+resposta_offSpeaker={sim senhor!|desculpe senhor!}

@@ -1,0 +1,4 @@
+
+[text=tchau|tchau jarvis|até mais charvis;
+resposta=até mais senhor.|tiau senhor;
+executar=null;]

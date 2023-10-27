@@ -1,0 +1,93 @@
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.exe.config
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.exe
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.pdb
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\bin\Debug\Microsoft.Speech.dll
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\bin\Debug\NAudio.dll
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.AssemblyReference.cache
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.SuggestedBindingRedirects.cache
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Form1.resources
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Properties.Resources.resources
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.GenerateResource.cache
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.CoreCompileInputs.cache
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.CopyComplete
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.exe
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.pdb
+E:\DESENVOLVIMENTO\MEUS CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.ChatNativo.resources
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.exe
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.exe.config
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.pdb
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\bin\Debug\Microsoft.Speech.dll
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\bin\Debug\NAudio.dll
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.AssemblyReference.cache
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.SuggestedBindingRedirects.cache
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.ChatNativo.resources
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.AddComands1.resources
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.EditarComands.resources
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.NovoComando.resources
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Form1.resources
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.ListadeComandos.resources
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.menu.resources
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Testes.resources
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Properties.Resources.resources
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.GenerateResource.cache
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.CoreCompileInputs.cache
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.CopyComplete
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.exe
+E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.pdb
+D:\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.exe.config
+D:\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.exe
+D:\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.pdb
+D:\InteligenciaArtificial\bin\Debug\Microsoft.Speech.dll
+D:\InteligenciaArtificial\bin\Debug\NAudio.dll
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.AssemblyReference.cache
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.SuggestedBindingRedirects.cache
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.ChatNativo.resources
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.AddComands1.resources
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.EditarComandosLine.resources
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.EditarComands.resources
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.FileNewText.resources
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.NovoComando.resources
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Form1.resources
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.ListadeComandos.resources
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.menu.resources
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Testes.resources
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Properties.Resources.resources
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.GenerateResource.cache
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.CoreCompileInputs.cache
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.CopyComplete
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.exe
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.pdb
+D:\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.exe.manifest
+D:\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.application
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.exe.manifest
+D:\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.application
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.exe.config
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.exe.manifest
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.application
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.exe
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\bin\Debug\InteligenciaArtificial.pdb
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\bin\Debug\Microsoft.Speech.dll
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\bin\Debug\NAudio.dll
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.AssemblyReference.cache
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.SuggestedBindingRedirects.cache
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.BarradeTarefas.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.ChatNativo.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.AddComands1.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.EditarComandosLine.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.EditarComands.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.FileNewText.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Comandos.NovoComando.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.CustomTextBox.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Form1.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.ListadeComandos.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.menu.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.TelaPreta.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Forms.Testes.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.Properties.Resources.resources
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.GenerateResource.cache
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.CoreCompileInputs.cache
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.exe.manifest
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.application
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.csproj.CopyComplete
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.exe
+D:\DESENVOLVIMENTO\MEUS-CODIGOS\C#\IA\InteligenciaArtificial\obj\Debug\InteligenciaArtificial.pdb

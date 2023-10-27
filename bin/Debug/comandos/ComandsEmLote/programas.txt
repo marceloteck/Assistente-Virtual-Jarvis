@@ -1,0 +1,62 @@
+[text=navegador;
+resposta=abrindo navegador;
+executar=chrome;]
+
+[text=visual studio 2022|visual studio;
+resposta=abrindo visual studio;
+executar=devenv.exe;]
+
+[text=visual studio code;
+resposta=abrindo visual studio code;
+executar=D:\ARQUIVOS\SALA DE AULA\PROGRAMAS\Microsoft VS Code\Code.exe;]
+
+[text=word;
+ resposta=Abrindo o Word;
+ executar=WINWORD.EXE;]
+
+[text=excel;
+ resposta=Abrindo o Excel;
+ executar=EXCEL.EXE;]
+
+[text=powerpoint;
+ resposta=Abrindo o PowerPoint;
+ executar=POWERPNT.EXE;]
+
+[text=outlook;
+ resposta=Abrindo o Outlook;
+ executar=OUTLOOK.EXE;]
+
+[text=access;
+ resposta=Abrindo o Access;
+ executar=MSACCESS.EXE;]
+
+[text=onenote;
+ resposta=Abrindo o OneNote;
+ executar=ONENOTE.EXE;]
+
+[text=publisher;
+ resposta=Abrindo o Publisher;
+ executar=MSPUB.EXE;]
+
+[text=skype para negócios;
+ resposta=Abrindo o Skype para Negócios;
+ executar=lync.exe;]
+
+[text=pasta de comandos;
+ resposta=Abrindo minha pasta de comandos;
+ executar=E:\DESENVOLVIMENTO\MEUS-CÓDIGOS\C#\IA\InteligenciaArtificial\bin\Debug\comandos\ComandsEmLote\;]
+[text=abrir microfone wifi|microfone wifi;
+resposta=abrindo Wo Mic;
+executar=C:\Program Files (x86)\WOMic\WOMicClient.exe;]
+
+[text=photoshop|foto shop;
+resposta=abrindo photoshop;
+executar=C:\Program Files (x86)\Adobe\Adobe Photoshop CC 2018 (32 Bit)\Photoshop.exe;]
+
+[text=notepad|note pede;
+resposta=abrindo note pede;
+executar=C:\Program Files\Notepad++\notepad++.exe;]
+
+[text=adobe premiere|premiere|premier|editor de video|editar video;
+resposta=abrindo adobe premiere;
+executar=C:\Program Files\Adobe\Adobe Premiere Pro CC 2018\Adobe Premiere Pro.exe;]

@@ -1,0 +1,143 @@
+// pode usar "interpolar:"
+// ou "chrome.exe:"
+
+[text=bloco de notas;
+resposta=abrindo bloco de notas;
+executar=notepad;]
+
+[text=prompt de comando| c m d;
+resposta=abrindo prompt de comando;
+executar=cmd;]
+
+[text=windows media player;
+resposta=abrindo windows media player;
+executar=wmplayer;]
+
+[text=gerenciador de tarefas;
+resposta=abrindo gerenciador de tarefas;
+executar=taskmgr;]
+
+[text=minhas pastas|explorador de Arquivos|explorer|ex;
+resposta=abrindo Explorador de Arquivos;
+executar=explorer;]
+
+[text=calculadora;
+resposta=abrindo calculadora;
+executar=calc;]
+
+[text=mapa de caracteres;
+resposta=abrindo mapa de caracteres;
+executar=charmap;]
+
+[text=limpeza de disco;
+resposta=abrindo limpeza de disco;
+executar=cleanmgr;]
+
+[text=gerenciamento de cores;
+resposta=abrindo gerenciamento de cores;
+executar=colorcpl;]
+
+[text=serviços de componente;
+resposta=abrindo serviços de componente;
+executar=comexp.msc;]
+
+[text=gerenciamento de computador;
+resposta=abrindo gerenciamento de computador;
+executar=compmgmt.msc;]
+
+[text=definir programas padrão;
+resposta=abrindo definir programas padrão;
+executar=ComputerDefaults;]
+
+[text=painel de controle;
+resposta=abrindo painel de controle;
+executar=control.exe;]
+
+[text=otimizador de texto;
+resposta=abrindo otimizador de texto;
+executar=cttune.exe;]
+
+[text=calibragem de cores;
+resposta=abrindo calibragem de cores;
+executar=dccw.exe;]
+
+[text=desfragmentador de disco;
+resposta=abrindo desfragmentador de disco;
+executar=dfrgui.exe;]
+
+[text=adicionar um novo dispositivo;
+resposta=abrindo adicionar um novo dispositivo;
+executar=DevicePairingWizard;]
+
+[text=gerenciador de dispositivos;
+resposta=abrindo gerenciador de dispositivos;
+executar=devmgmt.msc;]
+
+[text=discagem telefônica;
+resposta=abrindo discagem telefônica;
+executar=dialer.exe;]
+
+[text=gerenciamento de disco;
+resposta=abrindo gerenciamento de disco;
+executar=diskmgmt.msc;]
+
+[text=PowerShell;
+resposta=abrindo PowerShell;
+executar=powershell.exe;]
+
+[text=Configurações;
+resposta=abrindo Configurações;
+executar=ms-settings:;]
+
+[text=Painel de Controle;
+resposta=abrindo Painel de Controle;
+executar=control.exe;]
+
+[text=Editor de Registros;
+resposta=abrindo Editor de Registros;
+executar=regedit.exe;]
+
+[text=Centro de Segurança do Windows;
+resposta=abrindo Centro de Segurança do Windows;
+executar=wscui.cpl;]
+
+[text=Firewall do Windows;
+resposta=abrindo Firewall do Windows;
+executar=firewall.cpl;]
+
+[text=Gerenciamento de Energia;
+resposta=abrindo Gerenciamento de Energia;
+executar=powercfg.cpl;]
+
+[text=Serviços|Serviços do windows;
+resposta=abrindo Serviços;
+executar=services.msc;]
+
+[text=Editor de Política de Segurança Local;
+resposta=Abrindo Editor de Política de Segurança Local;
+executar=secpol.msc;]
+
+[text=Editor de Diretivas de Grupo Local;
+resposta=Abrindo Editor de Diretivas de Grupo Local;
+executar=gpedit.msc;]
+
+[text=Editor de Tarefas Agendadas;
+resposta=Abrindo Editor de Tarefas Agendadas;
+executar=taskschd.msc;]
+
+[text=aba|aba do navegador|janela|janela do navegador;
+resposta=fechando senhor;
+executar=navigator|CloseNavegator;]
+
+[text=nova guia|nova aba|nova janela do navegador|nova janela;
+resposta=abrindo senhor;
+executar=navigator|OpenNavegator;]
+
+
+[text=inicializar do windows|pasta de inicialização|pasta de inicialização do windows|diretorio inicializar do windows;
+resposta=abrindo pasta de inicialização do windows|abrindo pasta de inicialização;
+executar=shell:startup;]
+
+[text=volume|mudar volume|mix de volume|alterar volume;
+resposta=abrindo volume;
+executar=sndvol.exe;]

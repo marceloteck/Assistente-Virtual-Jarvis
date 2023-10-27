@@ -1,0 +1,6 @@
+[text=modo siapec|modo trabalho;
+resposta=sim senhor, ativando modo siapec|ativando modo siapec;
+executar=chrome.exe: --profile-directory="marcelo" https://siapec3.adepara.pa.gov.br/siapec3/|
+chrome.exe:--profile-directory="Adepará" https://siapec3.adepara.pa.gov.br/siapec3/|
+explorer|calc;]
+

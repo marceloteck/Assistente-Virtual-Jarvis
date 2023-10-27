@@ -1,1 +1,0 @@
-text=modo siapec|modo trabalho;resposta=sim senhor|ativando modo siapec;executar=chrome|https://siapec3.adepara.pa.gov.br/siapec3/|explorer;

@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{811E2423-DE56-4CBE-ADDE-69D9099908A7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>InteligenciaArtificial</RootNamespace>
+    <AssemblyName>InteligenciaArtificial</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\JARVIS\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>InteligenciaArtificial.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>FDDD4F085D16900EE7623C4786E18D7C846F1F6A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>InteligenciaArtificial_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Speech, Version=11.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Speech\v11.0\Assembly\Microsoft.Speech.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio">
+      <HintPath>.\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\BarradeTarefas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BarradeTarefas.Designer.cs">
+      <DependentUpon>BarradeTarefas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChatNativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChatNativo.Designer.cs">
+      <DependentUpon>ChatNativo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassGlobal\Actions.cs" />
+    <Compile Include="ClassGlobal\similarity.cs" />
+    <Compile Include="ClassGlobal\Words.cs" />
+    <Compile Include="Files\Arquivos.cs" />
+    <Compile Include="Files\FileDir.cs" />
+    <Compile Include="Forms\Comandos\AddComands1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Comandos\AddComands1.Designer.cs">
+      <DependentUpon>AddComands1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Comandos\EditarComandosLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Comandos\EditarComandosLine.Designer.cs">
+      <DependentUpon>EditarComandosLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Comandos\EditarComands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Comandos\EditarComands.Designer.cs">
+      <DependentUpon>EditarComands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Comandos\FileNewText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Comandos\FileNewText.Designer.cs">
+      <DependentUpon>FileNewText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Comandos\NovoComando.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Comandos\NovoComando.Designer.cs">
+      <DependentUpon>NovoComando.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\.Designer.cs">
+      <DependentUpon>.cs</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Controles de Usuario\TExtBoxCC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Controles de Usuario\TExtBoxCC.Designer.cs">
+      <DependentUpon>TExtBoxCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FileForms.cs" />
+    <Compile Include="Forms\ListadeComandos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListadeComandos.Designer.cs">
+      <DependentUpon>ListadeComandos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\menu.Designer.cs">
+      <DependentUpon>menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TelaPreta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TelaPreta.Designer.cs">
+      <DependentUpon>TelaPreta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Testes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Testes.Designer.cs">
+      <DependentUpon>Testes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassGlobal\ListComands.cs" />
+    <Compile Include="system\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reconhecimento\ActiveComands.cs" />
+    <Compile Include="Reconhecimento\Rec.cs" />
+    <Compile Include="Reconhecimento\Speaker.cs" />
+    <EmbeddedResource Include="Forms\BarradeTarefas.resx">
+      <DependentUpon>BarradeTarefas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChatNativo.resx">
+      <DependentUpon>ChatNativo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Comandos\AddComands1.resx">
+      <DependentUpon>AddComands1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Comandos\EditarComandosLine.resx">
+      <DependentUpon>EditarComandosLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Comandos\EditarComands.resx">
+      <DependentUpon>EditarComands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Comandos\FileNewText.resx">
+      <DependentUpon>FileNewText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Comandos\NovoComando.resx">
+      <DependentUpon>NovoComando.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\.resx">
+      <DependentUpon>.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListadeComandos.resx">
+      <DependentUpon>ListadeComandos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\menu.resx">
+      <DependentUpon>menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TelaPreta.resx">
+      <DependentUpon>TelaPreta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Testes.resx">
+      <DependentUpon>Testes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="InteligenciaArtificial_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="system\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <None Include="Resources\fundo-de-tecnologia-de-placa-de-circuito-com-sistema-de-conexao-de-dados-digitais-de-alta-tecnologia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

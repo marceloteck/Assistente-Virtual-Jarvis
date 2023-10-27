@@ -1,0 +1,128 @@
+[text=que horas são|
+você pode me dizer as horas|
+pode me informar que horas são agora|
+pode me falar as horas|
+qual é a hora atual|
+me informe as horas por favor|
+você pode me dizer que horas são neste momento|
+que horas estamos|
+pode me informar que horas são neste instante|
+me diga as horas|
+qual é a hora agora|
+você pode me informar as horas por gentileza|
+pode me dizer as horas agora mesmo|
+hora|
+horas|
+que horas tem|
+que horas tem agora|
+me diz as horas|
+você pode me falar que horas são agora|
+hora certa|
+qual a hora certa|
+horário|
+que horas são neste momento|
+pode me dizer que horas estamos|
+me informe a hora atual por favor|
+qual é a hora exata|
+você sabe me dizer as horas agora|
+que horas marca o relógio|
+poderia me dizer que horas são agora mesmo|
+que horas são já|
+você poderia me falar que horas são por gentileza|
+será que você poderia me informar que horas são|
+por favor pode me dizer a hora que é agora|
+que horas o relógio está marcando|
+dá pra você me dizer as horas|
+saberia me informar a que horas estamos|
+pode me dizer a hora certa|
+qual é o horário atual|
+você poderia me dizer que horas são agora|
+saberia me dizer que horas são por favor|
+poderia me informar a hora atual|
+que horas estão marcando agora|
+teria como me falar as horas por gentileza|
+que horas são neste momento|
+você poderia me dizer que horas são neste instante|
+me informe a hora por favor|
+já é que horas;
+resposta=null;
+executar=HorasSpeech;]
+
+[text=qual é a data de hoje|
+me informe a data de hoje por favor|
+qual é a data de hoje em que estamos|
+qual é a data atual|
+me diga qual é a data de hoje|
+qual é a data de hoje mesmo|
+qual é a data de hoje em que estamos vivendo|
+pode me informar que dia é hoje por gentileza|
+qual é a data de hoje em que vivemos agora|
+qual é a data de hoje no calendário|
+me informe a data atual por gentileza|
+qual é a data de hoje em que estamos|
+qual a data|
+qual a data atual|
+data atual|
+dia atual|
+data de hoje|
+que data é hoje|
+qual a data de hoje|
+qual a data de hoje no calendário;
+resposta=null;
+executar=dataspeech;]
+
+[text=que dia é hoje|
+pode me dizer que dia estamos hoje|
+que dia estamos hoje|
+qual é o dia atual|
+pode me falar que dia é hoje|
+pode me dizer que dia é hoje|
+me informe o dia de hoje por favor|
+você sabe me dizer que dia é hoje|
+que dia estamos|
+poderia me falar qual é o dia de hoje|
+que dia é hoje em que vivemos|
+qual é o dia de hoje no mês|
+hoje é que dia|
+que dia é|
+qual o dia|
+que dia|
+dia de hoje|
+qual o dia de hoje|
+dia atual|
+que dia é|
+qual o dia|
+hoje é que dia|
+qual o dia de hoje no calendário;
+resposta=null;
+executar=DiaSpeech;]
+
+[text=qual o dia da semana|
+que dia da semana é hoje|
+que dia estamos nesta semana|
+pode me falar que dia é hoje da semana|
+que dia da semana é hoje|
+me fala o dia da semana|
+em que semana estamos;
+resposta=;
+executar=SemanaSpeech;]
+
+[text=qual o mês|
+qual o mês atual|
+em que mês estamos|
+que mês é hoje|
+qual o nome do mês atual|
+que mês é este|
+me diga qual é o mês de hoje|
+em que mês estamos vivendo;
+resposta=null;
+executar=MesSpeech;]
+
+[text=em que ano estamos|
+qual é o ano atual|
+que ano é este|
+em que ano estamos vivendo|
+qual o ano|
+qual o ano atual;
+resposta=null;
+executar=AnoSpeech;]

@@ -1,0 +1,11 @@
+modoSiapec.txt
+modoProgramador.txt
+jarvis.txt
+sites.txt
+dateTime.txt
+funcitons.txt
+sistemaWindows.txt
+programas.txtconversa.txt
+adeparaComandos.txt
+PessoaisInfo.txt
+cursos.txt

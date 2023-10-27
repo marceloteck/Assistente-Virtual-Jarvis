@@ -1,0 +1,153 @@
+//Exel
+[text=Editar minhas finanças|abrir minhas finanças|editar financeiro;
+resposta=abrindo Financeiro;
+executar=https://1drv.ms/x/s!Aof8LnB43UgluFgcW0UKHJ7F2vlf?e=6R0bA4;]
+
+//videos e filmes online
+[text=youtube;resposta=abrindo Youtube;executar=https://www.youtube.com/;]
+[text=Netflix;resposta=abrindo Netflix;executar=https://www.netflix.com/browse;]
+[text=Amazon Prime Video;resposta=abrindo Amazon Prime Video;executar=https://www.amazon.com.br/Prime-Video/b/?ie=UTF8&node=14126493011;]
+[text=HBO Max;resposta=abrindo HBO Max;executar=https://www.hbomax.com/br;]
+
+[text=Top flix;resposta=abrindo Top flix;executar=https://topflix.vip/;]
+
+//REDES SOCIAIS
+[text=Facebook;resposta=abrindo Facebook;executar=https://www.facebook.com/;]
+[text=Twitter;resposta=abrindo Twitter;executar=https://twitter.com/;]
+[text=Instagram;resposta=abrindo Instagram;executar=https://www.instagram.com/;]
+[text=Reddit;resposta=abrindo Reddit;executar=https://www.reddit.com/;]
+[text=TikTok;resposta=Abrindo TikTok;executar=https://www.tiktok.com/;]
+
+//EMAIL
+[text=Outlook;resposta=abrindo Outlook;executar=https://www.outlook.com/;]
+[text=Gmail;resposta=Abrindo Gmail;executar=https://mail.google.com/;]
+
+//GOOGLE
+[text=Google Drive;resposta=abrindo Google Drive;executar=https://www.google.com/drive/;]
+[text=Google Imagens;resposta=abrindo Google Imagens;executar=https://www.google.com/imghp;]
+[text=Google;resposta=abrindo Google;executar=https://www.google.com/;]
+
+//LITURGIA DIARIA
+[text=Liturgia Diária Canção Nova;resposta=abrindo Liturgia Diária Canção Nova;executar=https://liturgia.cancaonova.com/;]
+[text=Católico Orante;resposta=Abrindo Católico Orante;executar=https://www.catolicoorante.com.br/;]
+
+//OUVIR MUSICAS
+[text=quero ouvir musica|Spotify|Spotifai|espotifai;resposta=abrindo Spotify;executar=https://www.spotify.com/;]
+[text=Deezer;resposta=Abrindo Deezer;executar=https://www.deezer.com/br/;]
+[text=YouTube Music;resposta=Abrindo YouTube Music;executar=https://music.youtube.com/;]
+[text=SoundCloud;resposta=Abrindo SoundCloud;executar=https://soundcloud.com/;]
+[text=Jamendo;resposta=Abrindo Jamendo;executar=https://www.jamendo.com/;]
+[text=BandaCamp;resposta=Abrindo BandCamp;executar=https://bandcamp.com/;]
+[text=NoiseTrade;resposta=Abrindo NoiseTrade;executar=https://www.noisetrade.com/;]
+
+// INTELIGENCIA ARTIFICIAL
+[text=Chat G P T|chat gpt;resposta=abrindo Chat G P T;executar=https://chat.openai.com/chat/;]
+[text=OpenAI;resposta=Abrindo OpenAI;executar=https://openai.com/;]
+[text=Google AI;resposta=Abrindo Google AI;executar=https://ai.google/;]
+[text=IBM Watson;resposta=Abrindo IBM Watson;executar=https://www.ibm.com/watson;]
+[text=Microsoft Azure AI;resposta=Abrindo Microsoft Azure AI;executar=https://azure.microsoft.com/pt-br/services/cognitive-services/;]
+[text=Amazon AI;resposta=Abrindo Amazon AI;executar=https://aws.amazon.com/pt/machine-learning/;]
+
+//COMPARTILHAR ARQUIVOS COM DISPOSITIVOS
+[text=Snapdrop;resposta=abrindo Snapdrop;executar=https://snapdrop.net/;]
+[text=Send Anywhere;resposta=Abrindo Send Anywhere;executar=https://send-anywhere.com/;]
+[text=FilePizza;resposta=Abrindo FilePizza;executar=https://file.pizza/;]
+[text=Firefox Send;resposta=Abrindo Firefox Send;executar=https://send.firefox.com/;]
+[text=WeTransfer;resposta=Abrindo WeTransfer;executar=https://wetransfer.com/;]
+[text=TransferXL;resposta=Abrindo TransferXL;executar=https://transferxl.com/;]
+[text=JustBeamIt;resposta=Abrindo JustBeamIt;executar=https://www.justbeamit.com/;]
+[text=OnionShare;resposta=Abrindo OnionShare;executar=https://onionshare.org/;]
+
+// SITES DE EMPREGOS
+[text=LinkedIn;resposta=abrindo LinkedIn;executar=https://www.linkedin.com/;]
+[text=Indeed;resposta=Abrindo Indeed;executar=https://www.indeed.com.br/;]
+[text=InfoJobs;resposta=Abrindo InfoJobs;executar=https://www.infojobs.com.br/;]
+[text=Catho;resposta=Abrindo Catho;executar=https://www.catho.com.br/;]
+[text=Vagas.com;resposta=Abrindo Vagas.com;executar=https://www.vagas.com.br/;]
+[text=BeBee;resposta=Abrindo BeBee;executar=https://www.bebee.com/;]
+[text=Xing;resposta=Abrindo Xing;executar=https://www.xing.com/;]
+[text=Glassdoor;resposta=Abrindo Glassdoor;executar=https://www.glassdoor.com/index.htm;]
+[text=AngelList;resposta=Abrindo AngelList;executar=https://angel.co/;]
+[text=Meetup;resposta=Abrindo Meetup;executar=https://www.meetup.com/pt-BR/;]
+[text=Networking Academy;resposta=Abrindo Networking Academy;executar=https://www.netacad.com/pt-br;]
+
+[text=Clima em Santa Maria das Barreiras no Google;resposta=abrindo Clima em Santa Maria das Barreiras no Google;executar=https://www.google.com/search?q=clima+santa+maria+das+barreiras;]
+[text=W3 Schools;resposta=abrindo W3 Schools;executar=https://www.w3schools.com/;]
+[text=Hotmart;resposta=abrindo Hotmart;executar=https://www.hotmart.com/;]
+[text=zap zap|whatsapp|whatsapp web;resposta=abrindo whatsapp|whatsapp web;executar=https://web.whatsapp.com/;]
+[text=siapec 3;resposta=abrindo siapec 3;executar=https://siapec3.adepara.pa.gov.br/siapec3/;]
+[text=app musica|app são pedro|aplicativo são pedro|aplicativo de musica;resposta=abrindo aplicativo são pedro|aplicativo de musica;executar=https://infospedro.000webhostapp.com/cantores/;]
+
+//LOJAS ONLINE
+[text=Amazon;resposta=Abrindo Amazon;executar=https://www.amazon.com/;]
+[text=eBay;resposta=Abrindo eBay;executar=https://www.ebay.com/;]
+[text=Walmart;resposta=Abrindo Walmart;executar=https://www.walmart.com/;]
+[text=Ali Express;resposta=Abrindo Ali Express;executar=https://www.aliexpress.com/;]
+[text=Wish;resposta=Abrindo Wish;executar=https://www.wish.com/;]
+[text=Mercado Livre;resposta=Abrindo Mercado Livre;executar=https://www.mercadolivre.com.br/;]
+[text=Americanas;resposta=Abrindo Americanas;executar=https://www.americanas.com.br/;]
+[text=Submarino;resposta=Abrindo Submarino;executar=https://www.submarino.com.br/;]
+[text=Magazine Luiza;resposta=Abrindo Magazine Luiza;executar=https://www.magazineluiza.com.br/;]
+[text=Shopee;resposta=Abrindo Shopee;executar=https://shopee.com.br/;]
+[text=Kabum;resposta=Abrindo Kabum;executar=https://www.kabum.com.br/;]
+[text=Carrefour;resposta=Abrindo Carrefour;executar=https://www.carrefour.com.br/;]
+[text=Casas Bahia;resposta=Abrindo Casas Bahia;executar=https://www.casasbahia.com.br/;]
+
+//Microsoft
+[text=Microsoft Office;resposta=Abrindo Microsoft Office;executar=https://www.microsoft.com/pt-br/microsoft-365/office;]
+[text=Word Online;resposta=Abrindo Word Online;executar=https://www.office.com/launch/word;]
+[text=Excel Online;resposta=Abrindo Excel Online;executar=https://www.office.com/launch/excel;]
+[text=PowerPoint Online;resposta=Abrindo PowerPoint Online;executar=https://www.office.com/launch/powerpoint;]
+[text=OneNote Online;resposta=Abrindo OneNote Online;executar=https://www.office.com/launch/onenote;]
+[text=OneDrive;resposta=Abrindo OneDrive;executar=https://onedrive.live.com/about/pt-br/;]
+[text=Teams;resposta=Abrindo Teams;executar=https://www.microsoft.com/pt-br/microsoft-365/microsoft-teams/group-chat-software;]
+[text=Outlook Online;resposta=Abrindo Outlook Online;executar=https://www.office.com/launch/outlook;]
+[text=Calendário do Outlook;resposta=Abrindo Calendário do Outlook;executar=https://outlook.live.com/calendar/;]
+[text=Skype for Business;resposta=Abrindo Skype for Business;executar=https://www.skype.com/pt-br/business/;]
+[text=SharePoint;resposta=Abrindo SharePoint;executar=https://www.microsoft.com/pt-br/microsoft-365/sharepoint/collaboration;]
+[text=Yammer;resposta=Abrindo Yammer;executar=https://www.microsoft.com/pt-br/microsoft-365/yammer/enterprise-social-media;]
+[text=Stream;resposta=Abrindo Stream;executar=https://www.microsoft.com/pt-br/microsoft-365/stream/enterprise-video-service;]
+[text=Visio Online;resposta=Abrindo Visio Online;executar=https://www.office.com/launch/visio;]
+[text=Project Online;resposta=Abrindo Project Online;executar=https://www.office.com/launch/project;]
+[text=Planner;resposta=Abrindo Planner;executar=https://www.microsoft.com/pt-br/microsoft-365/planner/task-management-software;]
+[text=Power Apps;resposta=Abrindo Power Apps;executar=https://powerapps.microsoft.com/pt-br/;]
+[text=Power BI;resposta=Abrindo Power BI;executar=https://powerbi.microsoft.com/pt-br/;]
+[text=Dynamics 365;resposta=Abrindo Dynamics 365;executar=https://dynamics.microsoft.com/pt-br/;]
+[text=Power Automate;resposta=Abrindo Power Automate;executar=https://flow.microsoft.com/pt-br/;]
+[text=Office Lens;resposta=Abrindo Office Lens;executar=https://www.microsoft.com/pt-br/microsoft-365/microsoft-office-lens-mobile-scanner-app;]
+
+//busca no google
+[text=Pesquisar PDF no Google;resposta=Pesquisando por PDF no Google;executar=https://google.com/search?q=filetype:pdf;]
+[text=Pesquisar notícias no Google;resposta=Pesquisando por notícias no Google;executar=https://google.com/search?q=notícias;]
+[text=Pesquisar imagens no Google;resposta=Pesquisando por imagens no Google;executar=https://google.com/search?q=imagens;]
+[text=Pesquisar mapas no Google;resposta=Abrindo Google Maps;executar=https://google.com/maps;]
+[text=Pesquisar tradução no Google|traduzir texto no google|tradução online|traduzir texto;resposta=Abrindo Google Tradutor;executar=https://translate.google.com;]
+[text=Pesquisar clima no Google;resposta=Abrindo Google para pesquisar clima;executar=https://google.com/search?q=clima;]
+[text=Pesquisar definições no Google;resposta=Abrindo Google para pesquisar definições;executar=https://google.com/search?q=definição;]
+[text=Pesquisar sinônimos no Google;resposta=Abrindo Google para pesquisar sinônimos;executar=https://google.com/search?q=sinônimo;]
+[text=Pesquisar antônimos no Google;resposta=Abrindo Google para pesquisar antônimos;executar=https://google.com/search?q=antônimo;]
+[text=Pesquisar conversão de unidades no Google;resposta=Abrindo Google para pesquisar conversão de unidades;executar=https://google.com/search?q=converter unidades;]
+
+//sia estacio
+[text=sia estacio;resposta=Abrindo sia estacio;executar=https://estudante.estacio.br/disciplinas;]
+
+//hospedagem
+[text=0 webhost|servidor de hospedagem gratuito|hospedagem gratuito|hospedagem gratuita|hospedagem gratis;resposta=Abrindo webhost;executar=https://www.000webhost.com/cpanel-login;]
+[text=login no 0 webhost|login no servidor de hospedagem gratuito|hospedagem gratuito|login na hospedagem gratuita|login na hospedagem gratis;resposta=Abrindo webhost;executar=https://www.000webhost.com/cpanel-login/oauth/google;]
+
+// Sites MEI
+[text=site mei|portal do empreendedor|site portal do empreendedor;
+resposta=Abrindo site portal do empreendedor;
+executar=https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/servicos-para-mei;]
+[text=pagar boleto mei|gerar boleto mei|pagar boleto da empresa|gerar boleto da empresa;
+resposta=Abrindo site da receita;
+executar=http://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao;]
+
+[text=git hub;resposta=Abrindo git hub;executar=https://github.com/;]
+[text=calendario liturgico|calendario liturgico catolico;
+resposta=abrindo calendario liturgico 2023;
+executar=http://www.gcatholic.org/calendar/2023/BR-pt.htm;]
+
+[text=encurtar url|encurtar link|encurtador de url|encurtador de link;
+resposta=abrindo site bitly;
+executar=https://app.bitly.com/BmbjdIODCwf/bitlinks/3F6MW6P/details;]

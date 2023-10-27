@@ -1,0 +1,19 @@
+// saudações
+bom_dia={bom dia};
+boa_tarde={boa tarde};
+boa_noite={boa noite};
+
+//horario
+Horas={horas|horario|hora}
+data={data}
+dia={dia|dias}
+semana={semana|semanas}
+mes={mês}
+ano={ano|anos}
+
+//tags abrir
+open={abrir|abra}
+executar={execute|executa}
+rodar={rodar}
+aguarde={um programa|um software|um aplicativo|um site}
+resposta_aguarde={qual %a% você quer abrir}

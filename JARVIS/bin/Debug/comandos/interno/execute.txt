@@ -1,6 +1,0 @@
-abrir
-abra
-abre
-fechar
-feche
-fecha
