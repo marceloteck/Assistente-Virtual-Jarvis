@@ -4,4 +4,4 @@ sites.txt
 dateTime.txt
 funcitons.txt
 sistemaWindows.txt
-programas.txtconversa.txtPessoaisInfo.txt
+programas.txtconversa.txt
