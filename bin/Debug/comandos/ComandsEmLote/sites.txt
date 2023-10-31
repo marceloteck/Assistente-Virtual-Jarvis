@@ -1,12 +1,10 @@
-//Exel
-[text=Editar minhas finanças|abrir minhas finanças|editar financeiro;
-resposta=abrindo Financeiro;
-executar=https://1drv.ms/x/s!Aof8LnB43UgluFgcW0UKHJ7F2vlf?e=6R0bA4;]
-
 //videos e filmes online
 [text=youtube;resposta=abrindo Youtube;executar=https://www.youtube.com/;]
+
 [text=Netflix;resposta=abrindo Netflix;executar=https://www.netflix.com/browse;]
+
 [text=Amazon Prime Video;resposta=abrindo Amazon Prime Video;executar=https://www.amazon.com.br/Prime-Video/b/?ie=UTF8&node=14126493011;]
+
 [text=HBO Max;resposta=abrindo HBO Max;executar=https://www.hbomax.com/br;]
 
 [text=Top flix;resposta=abrindo Top flix;executar=https://topflix.vip/;]
@@ -71,12 +69,9 @@ executar=https://1drv.ms/x/s!Aof8LnB43UgluFgcW0UKHJ7F2vlf?e=6R0bA4;]
 [text=Meetup;resposta=Abrindo Meetup;executar=https://www.meetup.com/pt-BR/;]
 [text=Networking Academy;resposta=Abrindo Networking Academy;executar=https://www.netacad.com/pt-br;]
 
-[text=Clima em Santa Maria das Barreiras no Google;resposta=abrindo Clima em Santa Maria das Barreiras no Google;executar=https://www.google.com/search?q=clima+santa+maria+das+barreiras;]
 [text=W3 Schools;resposta=abrindo W3 Schools;executar=https://www.w3schools.com/;]
 [text=Hotmart;resposta=abrindo Hotmart;executar=https://www.hotmart.com/;]
 [text=zap zap|whatsapp|whatsapp web;resposta=abrindo whatsapp|whatsapp web;executar=https://web.whatsapp.com/;]
-[text=siapec 3;resposta=abrindo siapec 3;executar=https://siapec3.adepara.pa.gov.br/siapec3/;]
-[text=app musica|app são pedro|aplicativo são pedro|aplicativo de musica;resposta=abrindo aplicativo são pedro|aplicativo de musica;executar=https://infospedro.000webhostapp.com/cantores/;]
 
 //LOJAS ONLINE
 [text=Amazon;resposta=Abrindo Amazon;executar=https://www.amazon.com/;]
@@ -128,20 +123,9 @@ executar=https://1drv.ms/x/s!Aof8LnB43UgluFgcW0UKHJ7F2vlf?e=6R0bA4;]
 [text=Pesquisar antônimos no Google;resposta=Abrindo Google para pesquisar antônimos;executar=https://google.com/search?q=antônimo;]
 [text=Pesquisar conversão de unidades no Google;resposta=Abrindo Google para pesquisar conversão de unidades;executar=https://google.com/search?q=converter unidades;]
 
-//sia estacio
-[text=sia estacio;resposta=Abrindo sia estacio;executar=https://estudante.estacio.br/disciplinas;]
-
 //hospedagem
 [text=0 webhost|servidor de hospedagem gratuito|hospedagem gratuito|hospedagem gratuita|hospedagem gratis;resposta=Abrindo webhost;executar=https://www.000webhost.com/cpanel-login;]
 [text=login no 0 webhost|login no servidor de hospedagem gratuito|hospedagem gratuito|login na hospedagem gratuita|login na hospedagem gratis;resposta=Abrindo webhost;executar=https://www.000webhost.com/cpanel-login/oauth/google;]
-
-// Sites MEI
-[text=site mei|portal do empreendedor|site portal do empreendedor;
-resposta=Abrindo site portal do empreendedor;
-executar=https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/servicos-para-mei;]
-[text=pagar boleto mei|gerar boleto mei|pagar boleto da empresa|gerar boleto da empresa;
-resposta=Abrindo site da receita;
-executar=http://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao;]
 
 [text=git hub;resposta=Abrindo git hub;executar=https://github.com/;]
 [text=calendario liturgico|calendario liturgico catolico;
